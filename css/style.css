@@ -60,7 +60,7 @@ body {
     background-color: #009688;
     padding: 17.5px;
     border-radius: 7px;
-    width: 35%;
+    width: 100%;
     color: white;
 }
 
@@ -293,7 +293,8 @@ span.psw {
     margin: 5% auto 15% auto;
     /* 5% from the top, 15% from the bottom and centered */
     border: 1px solid #888;
-    width: 40%;
+    border-radius: 7px;
+    width: 45%;
     /* Could be more or less, depending on screen size */
     padding-bottom: 20px;
 }
