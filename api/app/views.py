@@ -298,5 +298,44 @@ def create_app(config_name):
         else:
             return Helper_Functions.the_return_method(
                 validated_input[0], validated_input[1])
+    
+    @app.route('/api/v2/auth/login', methods=['POST'])
+    def sign_up_user():
+        input_data = json.loads(request.data)
+        firstname = input_data['firstname']
+        lastname = input_data['lastname']
+        othernames = input_data['othernames']
+        email = input_data['email']
+        password = input_data['password']
+        phonenumber = input_data['phonenumber']
+        username = input_data['username']
+        validate_input = Register_Validation(
+            {"firstname": firstname, "lastname": lastname, "othernames": othernames, "email": email, "password": password, "phonenumber": phonenumber, "username": username})
+        validated_input = validate_input.check_input()
+        database = Database()
+
+        if validated_input[0] == 200:
+            if database.get_user_by_email(email):
+                return Helper_Functions.the_return_method(
+                    401, "That Email is already taken.")
+            else:
+                new_user_info_list = [
+                    firstname,
+                    lastname,
+                    othernames,
+                    email,
+                    password,
+                    phonenumber,
+                    username,
+                    "False"]
+                new_user = User(new_user_info_list)
+
+                user_data = database.save_user(new_user)
+                return make_response(jsonify(
+                    {"status": 201, "data": Helper_Functions.get_dict_user(user_data), "message": "Successfully registered"})), 201
+        else:
+            return Helper_Functions.the_return_method(
+                validated_input[0], validated_input[1])
+
 
     return app
