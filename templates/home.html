@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>iReporter</title>
+    <link rel="shortcut icon" href="images/favicon.png" type="image/x-icon">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" media="screen" href="css/style.css" />
+    <script src="main.js"></script>
+</head>
+
+<body>
+    <div class="pageHeading">
+        <span class="logo-l">i</span><span class="logo-r">Reporter</span>
+    </div>
+
+
+    <div style="overflow:auto">
+        <div class="menu">
+            <a href="home.html">HOME..</a>
+            <a href="user_profile.html">PROFILE</a>
+            <a href="records.html">RECORDS</a>
+            <a href="redflags.html">REDFLAGS</a>
+            <a href="intervation.html">INTERVATION</a>
+        </div>
+
+        <div class="main">
+            <p id="theme_about">A Stand Against Corruption.</p>
+            <h3>Create New</h3>
+            <button class="new_red_flag_button" onclick="document.getElementById('id02').style.display='block'" style="width:auto;"><img
+                    id="img_s" src="images/flag.png" alt="logo"> <B>Red Flag Record </B></button>
+            <button class="new_intervation_button" onclick="document.getElementById('id03').style.display='block'"
+                style="width:auto;"><img id="img_s" src="images/sos.png" alt="logo"> <B>Intervation Request </B></button>
+            <p>It is our responsibility as fellow citizens to ensure our country Uganda is corruption free.</p>
+
+            <div class="father">
+                <img class="bannerImage" src="images/take_action.jpg">
+            </div>
+        </div>
+
+        <div class="right">
+            <div class="LogOut"><a href="index.html">Logout</a></div>
+
+            <h2 id="text_left">HOTLINE</h2>
+            <p id="text_left"><img id="contact_images" src="images/call.png" alt=""> 0414 5555 555</p>
+            <p id="text_left"><img id="contact_images" src="images/call.png" alt=""> 0414 4444 444</p>
+            <p id="text_left"><img id="contact_images" src="images/email.png" alt=""> ask@ireporter.com</p>
+
+        </div>
+
+    </div>
+    <div class="footer">Andela Level Up 35 December - Anorld Mukone, 2018</div>
+
+    <div id="id02" class="modal">
+        <form class="modal-content animate" action="active_orders.html">
+            <div class="imgcontainer">
+                <span onclick="document.getElementById('id02').style.display='none'" class="close" title="Close Modal">&times;</span>
+                <img src="images/flag2.png" alt="Avatar" class="avatar">
+            </div>
+            <div class="container">
+                <div>
+                    <form action="/action_page.php">
+                        <label for="lname">Time of incident</label>
+                        <input type="text" id="lname" name="user_phone" placeholder="Time incident happened..">
+
+                        <label for="lname">Persons involved</label>
+                        <input type="text" id="lname" name="names" placeholder="Names">
+
+                        <label for="lname">Incident</label>
+                        <input type="text" id="lname" name="incident" placeholder="Explain what happened..">
+
+                        <label for="sector">Select sector</label>
+                        <select id="office" name="office">
+                            <option value="small">Government official</option>
+                            <option value="medium">Police Persons</option>
+                            <option value="large">Public Hospital</option>
+                            <option value="large">Other</option>
+                        </select>
+                        <input type="submit" value="SUBMIT REDFLAG">
+                    </form>
+                </div>
+            </div>
+
+        </form>
+    </div>
+
+    <div id="id03" class="modal">
+        <form class="modal-content animate" action="active_orders.html">
+            <div class="imgcontainer">
+                <span onclick="document.getElementById('id03').style.display='none'" class="close" title="Close Modal">&times;</span>
+                <img src="images/sos2.png" alt="Avatar" class="avatar">
+            </div>
+            <div class="container">
+                <div>
+                    <form action="/action_page.php">
+
+                        <label for="lname">Request</label>
+                        <input type="text" id="lname" name="intervation" placeholder="Describe your intervation request..">
+
+                        <label for="sector">Select Sector</label>
+                        <select id="office" name="office">
+                            <option value="small">Government</option>
+                            <option value="medium">Parliament</option>
+                            <option value="medium">Judiciary</option>
+                            <option value="medium">Police</option>
+                            <option value="large">Other</option>
+                        </select>
+                        <input type="submit" value="SUBMIT INTERVATION REQUESET">
+                    </form>
+                </div>
+            </div>
+
+        </form>
+    </div>
+    <script>
+        var modal1 = document.getElementById('id02');
+        var modal3 = document.getElementById('id03');
+
+        // When the user clicks anywhere outside of the modal, close it
+        window.onclick = function (event) {
+            if (event.target == modal1 || event.target == modal3) {
+                modal.style.display = "none";
+            }
+        }
+    </script>
+
+</body>
+
+</html>
