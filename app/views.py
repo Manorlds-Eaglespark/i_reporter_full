@@ -260,6 +260,7 @@ def create_app(config_name):
     @app.route('/api/v2/auth/login', methods=['POST'])
     def login_user():
         input_data = json.loads(request.data)
+        print(input_data)
         password = input_data['password']
         email = input_data['email']
         validate_input = Login_Validation(
@@ -288,8 +289,7 @@ def create_app(config_name):
                         return Helper_Functions.the_return_method(
                             401, "Enter a correct Password")
                 else:
-                    return Helper_Functions.the_return_method(
-                        401, "Email not registered on any account.")
+                    return jsonify({"status": 401, "error": "Email not registered on any account."}), 401 
             except Exception as e:
                 response = {
                     'message': str(e)
@@ -299,7 +299,7 @@ def create_app(config_name):
             return Helper_Functions.the_return_method(
                 validated_input[0], validated_input[1])
     
-    @app.route('/api/v2/auth/login', methods=['POST'])
+    @app.route('/api/v2/auth/signup', methods=['POST'])
     def sign_up_user():
         input_data = json.loads(request.data)
         firstname = input_data['firstname']
