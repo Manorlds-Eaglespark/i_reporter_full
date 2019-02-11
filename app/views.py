@@ -181,10 +181,10 @@ def create_app(config_name):
                 return make_response(jsonify({"status": 201, "data": Incident.convert_to_dictionary(saved_incident), "message": "Created Intervention record"})),201
             else:
                 return make_response(
-                            jsonify({"status": 400, "error": "a similar resource already exists."}))
+                            jsonify({"status": 400, "error": "a similar resource already exists."})), 400
         else:
             return make_response(
-                        jsonify({"status": validated_inputs[0], "error": validated_inputs[1]}))
+                        jsonify({"status": validated_inputs[0], "error": validated_inputs[1]})), 400
         
     @app.route('/api/v2/interventions', methods=['GET'])
     @login_required

@@ -16,8 +16,7 @@ class Database:
         else:
             db_name = "ireporter"
 
-        self.connection = psycopg2.connect(user="postgres", password="", host="127.0.0.1", port="5432",
-                                           database=db_name)
+        self.connection = psycopg2.connect("postgres://whmesukjnlwttb:c498b974a7d1db0614fdfe1f29509fe9a3499ef1482f42a1c784b01db131805c@ec2-107-21-99-237.compute-1.amazonaws.com:5432/dchc10grt0qgum")
         self.cursor = self.connection.cursor()
         self.connection.autocommit = True
 
