@@ -1,5 +1,23 @@
 
-function login_user() {
+function get_redflags() {
+    fetch('http://127.0.0.1:5000/api/v2/red-flags')
+        .then(res => res.json())
+        .then(data => {
+            console.log(data);
+        })
+        .catch(function (error) {
+            console.log({"Error":error});
+        });
+
+}
+
+
+
+
+
+
+
+async function login_user() {
 
     data_ = {
         email: document.getElementById("email").value,
@@ -10,16 +28,17 @@ function login_user() {
         headers: new Headers({
             "Content-Type": "application/json"
         }),
-        body: JSON.stringify(data_),
-        mode:'cors'
+        body: JSON.stringify(data_)
     });
 
-    fetch(request)
+    thisds = await fetch(request)
         .then(res => res.json())
         .then(data => {
             console.log(data);
         })
         .catch(function (error) {
-            console.log(error);
+            console.log({"error":error});
         });
+
+    return thisds
 }

@@ -13,7 +13,7 @@ from dotenv import load_dotenv
 from app.utilities.login_required import login_required, admin_required
 from app.utilities.register_validation import Register_Validation
 from app.utilities.login_validation import Login_Validation
-from flask_cors import CORS
+from flask_cors import CORS, cross_origin
 
 
 def create_app(config_name):
@@ -26,6 +26,7 @@ def create_app(config_name):
     app.config.from_object(app_config[config_name])
     app.config.from_pyfile('config.py')
     CORS(app)
+    
 
     database = Database()
 
