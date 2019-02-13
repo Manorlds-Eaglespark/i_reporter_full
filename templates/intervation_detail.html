@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>iReporter</title>
+    <link rel="shortcut icon" href="images/favicon.png" type="image/x-icon">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" media="screen" href="css/style.css" />
+    <script src="main.js"></script>
+</head>
+
+<body>
+    <div class="pageHeading">
+        <span class="logo-l">i</span><span class="logo-r">Reporter</span>
+    </div>
+
+
+    <div style="overflow:auto">
+        <div class="menu">
+            <a href="home.html">HOME</a>
+            <a href="user_profile.html">PROFILE</a>
+            <a href="records.html">RECORDS</a>
+            <a href="redflags.html">REDFLAGS</a>
+            <a href="intervation.html">INTERVATION</a>
+        </div>
+
+        <div class="main">
+            <p id="theme_about">A Stand Against Corruption.</p>
+            <h4>Always Important To Add Support To Your Claims</h4>
+            <h5 id="theme_blue"><img id="img_s" src="images/sos.png" alt="logo"> REDFLAG DETAIL</h5>
+            <div style="width:100%">
+                <div class="card">
+                    <img id="smaller_box" src="images/sos2.png" alt="Avatar">
+                    <div class="container">
+                        <p><b>Date</b>: 12/04/2015 at 8:00 AM</p>
+                        <p><b>Request</b>: People are filling up wetlands and building in them in Kisasi along Northern bypass. This should be looked into.</p>
+                        <p><b>Sector</b>: Government, NEMA, Police, KCCA</p>
+                        <p><b>Status</b>: Resolved</p>
+                        <p><b>Images</b>: <a href="records_images.html">view in Gallery</a></p>
+                        <p><b>Videos</b>: <a href="records_videos.html">view In Gallery</a></p>
+                        <p><b>Location</b>: Lat 0.1212, Long 0.2554</p>
+                    </div>
+                </div>
+
+
+                <form class="form_style" enctype="multipart/form-data" method="POST" action="action_page.html">
+
+                    <label for="uname"><b>Latitude</b></label>
+                    <input type="text" placeholder="Latitude" name="uname" required>
+                    <label for="uname"><b>Longitude</b></label>
+                    <input type="text" placeholder="Longitude" name="uname" required>
+                    <div class="form-group">
+                        <input class="form-control-file" name="logo" id="exampleInputFile" aria-describedby="fileHelp"
+                            type="file">
+                        <small id="fileHelp" style="text-align:left;" class="form-text text-muted">Upload Image</small>
+                    </div>
+                    <div class="form-group">
+                        <input class="form-control-file" name="logo" id="exampleInputFile" aria-describedby="fileHelp"
+                            type="file">
+                        <small id="fileHelp" style="text-align:left;" class="form-text text-muted">Upload Video</small>
+                    </div>
+                    <input class="btn btn-primary my-2 my-sm-0" type="submit" value="ADD INFO TO INTERVATION REQUEST" />
+
+
+                </form>
+            </div>
+
+        </div>
+
+        <div class="right">
+            <div class="LogOut"><a href="index.html">Logout</a></div>
+
+            <h2 id="text_left">HOTLINE</h2>
+            <p id="text_left"><img id="contact_images" src="images/call.png" alt=""> 0414 5555 555</p>
+            <p id="text_left"><img id="contact_images" src="images/call.png" alt=""> 0414 4444 444</p>
+            <p id="text_left"><img id="contact_images" src="images/email.png" alt=""> ask@ireporter.com</p>
+
+        </div>
+
+    </div>
+    <div class="footer">Andela Level Up 35 December - Anorld Mukone, 2018</div>
+
+</body>
+
+</html>
