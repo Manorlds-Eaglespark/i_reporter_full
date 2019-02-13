@@ -20,12 +20,14 @@ function get_redflags() {
                 td5 = createNode('td'),
                 td6 = createNode('td'),
                 td7 = createNode('td');
+            
+            let location = `${redflag.location}`;
 
                 td1.innerHTML = `${redflag.id}`
                 td2.innerHTML = `${redflag.created_on}`;
                 td3.innerHTML = `${redflag.status}`;
                 td4.innerHTML = `${redflag.comment}`;
-                td5.innerHTML = `${redflag.location}`;
+                td5.innerHTML = location.substring(1, location.length-1);
                 td6.innerHTML = `${redflag.images}`;
                 td7.innerHTML = `${redflag.videos}`;
 
