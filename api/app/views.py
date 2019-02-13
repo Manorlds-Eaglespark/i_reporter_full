@@ -63,13 +63,13 @@ def create_app(config_name):
             
 
     @app.route('/api/v2/red-flags', methods=['POST']) 
-    @login_required
-    def create_redflag(current_user):
+    # @login_required
+    def create_redflag(current_user = 1):
         input_data = json.loads(request.data)
         created_by = current_user
         doc_type = 'red_flag'
         location = input_data['location']
-        status = input_data['status']
+        status = 'New'
         images = input_data['images']
         videos = input_data['videos']
         comment = input_data['comment']
@@ -300,7 +300,7 @@ def create_app(config_name):
             return Helper_Functions.the_return_method(
                 validated_input[0], validated_input[1])
     
-    @app.route('/api/v2/auth/login', methods=['POST'])
+    @app.route('/api/v2/auth/register', methods=['POST'])
     def sign_up_user():
         input_data = json.loads(request.data)
         firstname = input_data['firstname']

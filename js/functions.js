@@ -1,9 +1,14 @@
 
 function get_redflags() {
-    fetch('http://127.0.0.1:5000/api/v2/red-flags')
+    fetch('http://127.0.0.1:5000/api/v2/red-flags',
+    {
+        headers:{
+            'Authorization':'Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJleHAiOjE1NTAxMTAyNjcsImlhdCI6MTU1MDA1MDI2Nywic3ViIjoyLCJhZG4iOiJGYWxzZSJ9.gVFIEfoqdOpbIWLWCQV0i9pMBmsQ6tCrpCl2Dm3e-Rc'
+        }
+    })
         .then(res => res.json())
         .then(data => {
-            console.log(data);
+            console.log({'data':data});
         })
         .catch(function (error) {
             console.log({"Error":error});
@@ -17,8 +22,7 @@ function get_redflags() {
 
 
 
-async function login_user() {
-
+function login_user() {
     data_ = {
         email: document.getElementById("email").value,
         password: document.getElementById("password").value
@@ -31,7 +35,7 @@ async function login_user() {
         body: JSON.stringify(data_)
     });
 
-    thisds = await fetch(request)
+    fetch(request)
         .then(res => res.json())
         .then(data => {
             console.log(data);
@@ -39,6 +43,4 @@ async function login_user() {
         .catch(function (error) {
             console.log({"error":error});
         });
-
-    return thisds
 }

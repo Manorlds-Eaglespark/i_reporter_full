@@ -11,7 +11,7 @@ load_dotenv(dotenv_path)
 psswd =  os.getenv("ADMIN_PASSWORD")
 eml = os.getenv("ADMIN_EMAIL")
 
-app = create_app('production')
+app = create_app('development')
 
 database = Database()
 database.create_all_tables()
