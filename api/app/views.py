@@ -43,11 +43,11 @@ def create_app(config_name):
         return make_response(jsonify(response)), 200
 
     @app.route('/api/v2/red-flags', methods=['GET'])
-    @login_required
-    def get_redflags(current_user):
+    # @login_required
+    def get_redflags(current_user=1):
         data = database.get_all_red_flags()
         if len(data) > 0:
-            return make_response(jsonify({"status": 200, "data": Helper_Functions.get_dict_incidents(data)})), 200
+            return make_response(jsonify({"status": 200, "redflags": Helper_Functions.get_dict_incidents(data)})), 200
         else:
             return Helper_Functions.the_return_method(404, "No resource added yet.")
          
