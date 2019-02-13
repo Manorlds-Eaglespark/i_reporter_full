@@ -12,6 +12,14 @@ body {
     background-color: white;
 }
 
+#feedback_bar{
+    width: 70%; 
+    background-color: burlywood;
+    text-align: center; 
+    color: white;
+    border-radius: 7px
+}
+
 #pointer_link {
     text-decoration: none;
 }

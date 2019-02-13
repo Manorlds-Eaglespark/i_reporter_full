@@ -149,13 +149,13 @@ def create_app(config_name):
                             jsonify({"status": 404, "error": "Resource not found."}))
             
     @app.route('/api/v2/interventions', methods=['POST'])
-    @login_required
-    def create_intervention_record(current_user):
+    # @login_required
+    def create_intervention_record(current_user=1):
         input_data = json.loads(request.data)
         created_by = current_user
         doc_type = 'intervention'
         location = input_data['location']
-        status = input_data['status']
+        status = 'New'
         images = input_data['images']
         videos = input_data['videos']
         comment = input_data['comment']
@@ -188,15 +188,15 @@ def create_app(config_name):
                         jsonify({"status": validated_inputs[0], "error": validated_inputs[1]}))
         
     @app.route('/api/v2/interventions', methods=['GET'])
-    @login_required
-    def get_intervention_records(current_user):
+    # @login_required
+    def get_intervention_records(current_user=1):
         data = database.get_all_interventions()
         if len(data) > 0:
             return make_response(
                 jsonify({"status": 200, "data": Helper_Functions.get_dict_incidents(data)})), 200
         else:
             return Helper_Functions.the_return_method(
-                        404, "No resource added yet.")
+                        404, "Sorry, no resource added yet.")
         
     @app.route('/api/v2/interventions/<intervention_id>', methods=['GET'])
     @login_required

@@ -6,11 +6,12 @@
         <meta http-equiv="X-UA-Compatible" content="text/html" charset="utf-8" />
         <link rel="stylesheet" type="text/css" media="screen" href="../css/style.css" />
         <script type="text/javascript" src="../js/functions.js"></script>
+        <script type="text/javascript" src="../js/get_interventions.js"></script>
         <title>iReporter</title>
         <link rel="shortcut icon" href="../images/favicon.png" type="image/x-icon">
 </head>
 
-<body>
+<body onload="get_interventions()">
     <div class="pageHeading">
         <span class="logo-l">i</span><span class="logo-r">Reporter</span>
     </div>
@@ -28,34 +29,25 @@
         <div class="main">
             <p id="theme_about">A Stand Against Corruption.</p>
             <h4>Always Important To Add Support To Your Claims</h4>
+
+            <div id="feedback_bar"></div>
+
             
             <h5 id="theme_blue"><img id="img_s" src="../images/sos.png" alt="logo">INTERVATION REQUESTS</h5>
             <div style="width:100%">
-                <table style="max-width:100%">
-                    <tr>
-                        <th>No.</th>
-                        <th>Date</th>
-                        <th>Request</th>
-                        <th id="disappear_small">Sector</th>
-                        <th id="disappear_small">Status</th>
-                        <th id="disappear_small">Image Evidence</th>
-                        <th id="disappear_small">Video</th>
-                        <th id="disappear_small">Lat</th>
-                        <th id="disappear_small">Long</th>
-                    </tr>
-                    <tr>
-                        <td>1</td>
-                        <td><a href="intervation_detail.html">12/04/2015 at 8:00 AM</a></td>
-                        <td>People are filling up wetlands and building in them in Kisasi along Northern bypass. This should be looked into.</td>
-                        <td id="disappear_small">Government, NEMA, Police, KCCA</td>
-                        <td id="disappear_small">Resolved</td>
-                        <td id="disappear_small"><a href="records_images.html">view</a></td>
-                        <td id="disappear_small"><a href="records_videos.html">view</a></td>
-                        <td id="disappear_small">0.125</td>
-                        <td id="disappear_small">0.458</td>
-                    </tr>
-                </table>
-
+                    <table style="max-width:100%" id = "interventions_table"> 
+                            <tr>
+                                <th >Id</th>
+                                <th >Date</th>
+                                <th id="disappear_small">Status</th>
+                                <th>Comment</th>
+                                <th id="disappear_small">Location (long,lat)</th>
+                                <th id="disappear_small">Image</th>
+                                <th id="disappear_small">Video</th>
+                            </tr>
+                        </table>
+        
+                        <br />
             </div>
 
 
