@@ -4,12 +4,13 @@
 <head>
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <meta http-equiv="X-UA-Compatible" content="text/html" charset="utf-8" />
-        <link rel="stylesheet" type="text/css" media="screen" href="../css/style.css" />
-        <script type="text/javascript" src="../js/functions.js"></script>
-        <script type="text/javascript" src="../js/get_interventions.js"></script>
-        <script type="text/javascript" src="../js/get_redflags.js"></script>
+        <link rel="stylesheet" type="text/css" media="screen" href="../assets/css/style.css" />
+        <script type="text/javascript" src="../assets/js/functions.js"></script>
+        <script type="text/javascript" src="../assets/js/get_interventions.js"></script>
+        <script type="text/javascript" src="../assets/js/get_redflags.js"></script>
+        <script type="text/javascript" src="../assets/js/user_profile.js"></script>
         <title>iReporter</title>
-        <link rel="shortcut icon" href="../images/favicon.png" type="image/x-icon">
+        <link rel="shortcut icon" href="../assets/images/favicon.png" type="image/x-icon">
 </head>
 
 <body>
@@ -29,14 +30,31 @@
 
         <div class="main">
             <p id="theme_about">A Stand Against Corruption.</p>
+            <h2>Details</h2>
+            <div><b>Name</b>: <span id="name"></span></div>
+            <div><b>Phone Number</b>: <span id="phonenumber"></span></div>
+            <div><b>Email Address</b>: <span id="email"></span></div>
+            <div><b>User-Name</b>: <span id="username"></span></div>
+
             <h2>Stats</h2>
             <p>Displayed are details of your previous and current reports and requests on iReporter.</p>
-            <div>Drafts: 0</div>
-            <div>Under investigation: 1</div>
+            <div id=theme><img id="img_s" src="../assets/images/flag2.png" alt="logo"><b>Red Flags</b></div>
+            <div>New: 1</div>
+            <div>Under-Investigation: 1</div>
+            <div>Resolved: 0</div>
+            <div>Rejected: 1</div>
+            <div>Total: 2</div>
+            <div id=theme_blue><img id="img_s" src="../assets/images/sos2.png" alt="logo"><b>Interventions</b></div>
+            <div>New: 1</div>
+            <div>Under-Investigation: 1</div>
             <div>Resolved: 0</div>
             <div>Rejected: 1</div>
             <div>Total: 2</div>
             </br>
+
+            <h2>Records</h2>
+
+            <h5 id="theme"><img id="img_s" src="../assets/images/flag2.png" alt="logo">INTERVATION REQUESTS</h5>
             <div style="width:100%">
                 <table style="max-width:100%">
                     <tr>
@@ -80,7 +98,7 @@
                 
                 </div>
                 
-                <h5 id="theme_blue"><img id="img_s" src="images/sos.png" alt="logo">INTERVATION REQUESTS</h5>
+                <h5 id="theme_blue"><img id="img_s" src="../assets/images/sos.png" alt="logo">INTERVATION REQUESTS</h5>
                 <div style="width:100%" class="form_style">
                     <table style="max-width:100%">
                         <tr>
@@ -116,36 +134,15 @@
             <div class="LogOut"><a href="index.html">Logout</a></div>
         
             <h2 id="text_left">HOTLINE</h2>
-            <p id="text_left"><img id="contact_images" src="images/call.png" alt=""> 0414 5555 555</p>
-            <p id="text_left"><img id="contact_images" src="images/call.png" alt=""> 0414 4444 444</p>
-            <p id="text_left"><img id="contact_images" src="images/email.png" alt=""> ask@ireporter.com</p>
+            <p id="text_left"><img id="contact_images" src="../assets/images/call.png" alt=""> 0414 5555 555</p>
+            <p id="text_left"><img id="contact_images" src="../assets/images/call.png" alt=""> 0414 4444 444</p>
+            <p id="text_left"><img id="contact_images" src="../assets/images/email.png" alt=""> ask@ireporter.com</p>
         
         </div>
 
     </div>
     <div class="footer">Andela Level Up 35 December - Anorld Mukone, 2018</div>
-
-
-
-    <script type="text/javascript">
-        //variable that will increment through the images
-        var step = 1
-        function slideit() {
-            //if browser does not support the image object, exit.
-            if (!document.images)
-                return
-            document.images.slide1.src = eval("image" + step + ".src")
-            if (step < 5)
-                step++
-            else
-                step = 1
-            //call function "slideit()" every 4 seconds
-            setTimeout("slideit()", 2000)
-        }
-
-        slideit()
-    </script>
-
+<script>get_user_detail()</script>
 </body>
 
 </html>

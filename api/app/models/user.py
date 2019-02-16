@@ -40,5 +40,17 @@ class User:
 
         except Exception as e:
             return str(e)
-
+    
+    @staticmethod
+    def convert_to_dictionary(data_list):
+        return{
+            "id": data_list[0],
+            "firstname": data_list[1],
+            "lastname": data_list[2],
+            "othernames": data_list[3],
+            "email": data_list[4],
+            "phonenumber": data_list[6],
+            "username": data_list[7],
+            "isadmin": data_list[8]
+        }
     

@@ -83,6 +83,13 @@ class Database:
         user = self.cursor.fetchone()
         return user
 
+    def get_user_by_id(self, id):
+        postgresql_select_user_query = """SELECT * FROM users where id = '{0}' """.format(
+            id)
+        self.cursor.execute(postgresql_select_user_query)
+        user = self.cursor.fetchone()
+        return user
+
     def get_all_red_flags(self):
         sql_get_red_flags_query = """SELECT * FROM incidents where t_ype='red_flag'"""
         self.cursor.execute(sql_get_red_flags_query)

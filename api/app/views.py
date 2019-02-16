@@ -338,5 +338,16 @@ def create_app(config_name):
             return Helper_Functions.the_return_method(
                 validated_input[0], validated_input[1])
 
+    @app.route('/api/v2/users/<user_id>', methods=['GET'])
+    # @login_required
+    def get_user_by_id(user_id, current_user = 1):
+        data = database.get_user_by_id(user_id)
+        if data:
+            return make_response(
+                        jsonify({"status": 200, "data": User.convert_to_dictionary(data)})), 200
+        else:
+            return Helper_Functions.the_return_method(
+                        404, "Resource not found.")
+
 
     return app
