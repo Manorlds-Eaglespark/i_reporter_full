@@ -63,3 +63,10 @@ function get_interventions() {
         });
 
 }
+
+
+
+function get_id(id){
+    localStorage.setItem("item_id", id)
+}
+

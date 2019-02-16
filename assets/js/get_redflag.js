@@ -10,7 +10,7 @@ function get_redflag_detail() {
     fetch('http://127.0.0.1:5000/api/v2/red-flags/'+item_id,
     {
         headers:{
-            'Authorization':'Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJleHAiOjE1NTAyNDk4MDAsImlhdCI6MTU1MDI0MjYwMCwic3ViIjoyLCJhZG4iOiJGYWxzZSJ9.LrGBQnVBB4DsT3OmUdVMHENLX3HihNUSuLjo661IU1g'
+            'Authorization':'Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJleHAiOjE1NTAzMDA0MTUsImlhdCI6MTU1MDI5MzIxNSwic3ViIjoyLCJhZG4iOiJGYWxzZSJ9.5AbekCM-quMiebNR1hmFaPfEcxVOv0Ax6-X2yXrl6xI'
         }
     })
     .then(res => res.json())

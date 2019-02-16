@@ -6,6 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="text/html" charset="utf-8" />
     <link rel="stylesheet" type="text/css" media="screen" href="../assets/css/style.css" />
     <script type="text/javascript" src="../assets/js/functions.js"></script>
+    <script type="text/javascript" src="../assets/js/get_intervention.js"></script>
     <title>iReporter</title>
     <link rel="shortcut icon" href="../assets/images/favicon.png" type="image/x-icon">
 </head>
@@ -31,42 +32,27 @@
             
             <div id="feedback_bar"></div>
 
-            <h5 id="theme_blue"><img id="img_s" src="../assets/images/sos.png" alt="logo"> REDFLAG DETAIL</h5>
+            <h5 id="theme_blue"><img id="img_s" src="../assets/images/sos.png" alt="logo"> INTERVENTION DETAIL</h5>
             <div style="width:100%">
                 <div class="card">
-                    <img id="smaller_box" src="../assetsimages/sos2.png" alt="Avatar">
+                    <img id="smaller_box" src="../assets/images/sos2.png" alt="Avatar">
                     <div class="container">
-                        <p><b>Date</b>: 12/04/2015 at 8:00 AM</p>
-                        <p><b>Request</b>: People are filling up wetlands and building in them in Kisasi along Northern bypass. This should be looked into.</p>
-                        <p><b>Sector</b>: Government, NEMA, Police, KCCA</p>
-                        <p><b>Status</b>: Resolved</p>
-                        <p><b>Images</b>: <a href="records_images.html">view in Gallery</a></p>
-                        <p><b>Videos</b>: <a href="records_videos.html">view In Gallery</a></p>
-                        <p><b>Location</b>: Lat 0.1212, Long 0.2554</p>
+                            <p><b>Date</b>: <span id="item_date"></span></p>
+                            <p><b>Status</b>: <span id="item_status"></span></p>
+                            <p><b>Comment</b>: <span id="item_comment"></span></p>
+                            <p><b>Location</b>: <span id="item_location"></span></p>
+                            <p><b>Images</b>: <span id="item_images"></span></p>
+                            <p><b>Videos</b>: <span id="item_videos"></span></p>
+                            <p><b>Created By</b>: <span id="item_creator"></span></p>
                     </div>
                 </div>
 
-
-                <form class="form_style" enctype="multipart/form-data" method="POST" action="action_page.html">
-
-                    <label for="uname"><b>Latitude</b></label>
-                    <input type="text" placeholder="Latitude" name="uname" required>
-                    <label for="uname"><b>Longitude</b></label>
-                    <input type="text" placeholder="Longitude" name="uname" required>
-                    <div class="form-group">
-                        <input class="form-control-file" name="logo" id="exampleInputFile" aria-describedby="fileHelp"
-                            type="file">
-                        <small id="fileHelp" style="text-align:left;" class="form-text text-muted">Upload Image</small>
-                    </div>
-                    <div class="form-group">
-                        <input class="form-control-file" name="logo" id="exampleInputFile" aria-describedby="fileHelp"
-                            type="file">
-                        <small id="fileHelp" style="text-align:left;" class="form-text text-muted">Upload Video</small>
-                    </div>
-                    <input class="btn btn-primary my-2 my-sm-0" type="submit" value="ADD INFO TO INTERVATION REQUEST" />
-
-
-                </form>
+                <button class="new_intervation_button" onclick="document.getElementById('id02').style.display='block'"
+                style="width:auto;"><img id="img_s" src="../assets/images/sos.png" alt="logo"> <B>Intervation Request </B></button>
+            <br />
+            <br />
+            <br />
+            <br />
             </div>
 
         </div>
@@ -81,8 +67,44 @@
 
         </div>
 
+        <script>get_intervention_detail()</script>
     </div>
     <div class="footer">Andela Level Up 35 December - Anorld Mukone, 2018</div>
+
+    
+    <div id="id02" class="modal">
+            <form class="modal-content animate" action="active_orders.html">
+                    <div class="imgcontainer">
+                            <span onclick="document.getElementById('id02').style.display='none'" class="close" title="Close Modal">&times;</span>
+                            <img src="../assets/images/sos2.png" alt="Avatar" class="avatar">
+                        </div>
+                <div class="container">
+                    <div>
+                            <form class="form_style" enctype="multipart/form-data" method="POST" action="action_page.html">
+
+                                <label for="uname"><b>Latitude</b></label>
+                                <input type="text" placeholder="Latitude" name="uname" required>
+                                <label for="uname"><b>Longitude</b></label>
+                                <input type="text" placeholder="Longitude" name="uname" required>
+                                <div class="form-group">
+                                    <input class="form-control-file" name="logo" id="exampleInputFile" aria-describedby="fileHelp"
+                                        type="file">
+                                    <small id="fileHelp" style="text-align:left;" class="form-text text-muted">Upload Image</small>
+                                </div>
+                                <div class="form-group">
+                                    <input class="form-control-file" name="logo" id="exampleInputFile" aria-describedby="fileHelp"
+                                        type="file">
+                                    <small id="fileHelp" style="text-align:left;" class="form-text text-muted">Upload Video</small>
+                                </div>
+                                <input class="btn btn-primary my-2 my-sm-0" type="submit" value="ADD INFO TO INTERVATION REQUEST" />
+            
+            
+                            </form>
+                    </div>
+                </div>
+    
+            </form>
+        </div>
 
 </body>
 

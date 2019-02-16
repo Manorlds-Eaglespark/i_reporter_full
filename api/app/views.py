@@ -102,7 +102,7 @@ def create_app(config_name):
 
 
     @app.route('/api/v2/red-flags/<red_flag_id>/location', methods=['PATCH'])
-    @login_required
+    # @login_required
     def update_redflag_location(current_user, red_flag_id):
         location = json.loads(request.data)['location']
         data = database.update_location_of_incident(
@@ -114,7 +114,7 @@ def create_app(config_name):
                         jsonify({"status": 404, "error": "Resource not found."}))
             
     @app.route('/api/v2/red-flags/<red_flag_id>/comment', methods=['PATCH'])
-    @login_required
+    # @login_required
     def update_redflag_comment(current_user, red_flag_id):
         comment = json.loads(request.data)['comment']
         data = database.update_comment_of_incident(
@@ -126,7 +126,7 @@ def create_app(config_name):
                         jsonify({"status": 404, "error": "Resource not found."}))
             
     @app.route('/api/v2/red-flags/<red_flag_id>', methods=['DELETE'])
-    @login_required
+    # @login_required
     def delete_redflag(current_user, red_flag_id):
         if database.get_incident_by_id(red_flag_id, 'red_flag'):
             database.delete_incident(red_flag_id, 'red_flag')
@@ -137,7 +137,7 @@ def create_app(config_name):
                         jsonify({"status": 404, "error": "Resource not found."}))
         
     @app.route('/api/v2/red-flags/<red_flag_id>/status', methods=['PATCH'])
-    @admin_required
+    # @admin_required
     def update_redflag_status(current_user, red_flag_id):
         status = json.loads(request.data)['status']
         if database.get_incident_by_id(red_flag_id, 'red_flag'):
@@ -199,19 +199,19 @@ def create_app(config_name):
                         404, "Sorry, no resource added yet.")
         
     @app.route('/api/v2/interventions/<intervention_id>', methods=['GET'])
-    @login_required
-    def get_an_intervention_record(current_user, intervention_id):
+    # @login_required
+    def get_an_intervention_record(intervention_id, current_user = 1):
         data = database.get_incident_by_id(intervention_id, 'intervention')
         if data:
             return make_response(
-                        jsonify({"status": 200, "data": [Incident.convert_to_dictionary(data)]})), 200
+                        jsonify({"status": 200, "data": Incident.convert_to_dictionary(data)})), 200
         else:
             return Helper_Functions.the_return_method(
                         404, "Resource not found.")
         
     @app.route('/api/v2/interventions/<intervention_id>/comment',
                methods=['PATCH'])
-    @login_required
+    # @login_required
     def intervention_comment(current_user, intervention_id):
         comment = json.loads(request.data)['comment']
         data = database.update_comment_of_incident(
@@ -223,7 +223,7 @@ def create_app(config_name):
                         jsonify({"status": 404, "error": "Resource not found."}))
 
     @app.route('/api/v2/interventions/<intervention_id>/location', methods=['PATCH'])
-    @login_required
+    # @login_required
     def update_intervention_location(current_user, intervention_id):
         location = json.loads(request.data)['location']
         data = database.update_location_of_incident(
@@ -236,7 +236,7 @@ def create_app(config_name):
 
 
     @app.route('/api/v2/interventions/<intervention_id>', methods=['DELETE'])
-    @login_required 
+    # @login_required 
     def delete_interventions(current_user, intervention_id):
         if database.get_incident_by_id(intervention_id, 'intervention'):
             database.delete_incident(intervention_id, 'intervention')
@@ -247,7 +247,7 @@ def create_app(config_name):
                     jsonify({"status": 404, "error": "Resource not found."}))
 
     @app.route('/api/v2/interventions/<intervention_id>/status', methods=['PATCH'])
-    @admin_required
+    # @admin_required
     def update_intervention_status(current_user, intervention_id):
         status = json.loads(request.data)['status']
         if database.get_incident_by_id(intervention_id, 'intervention'):
