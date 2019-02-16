@@ -52,8 +52,8 @@ def create_app(config_name):
             return Helper_Functions.the_return_method(404, "No resource added yet.")
          
     @app.route('/api/v2/red-flags/<red_flag_id>', methods=['GET'])
-    @login_required
-    def get_a_redflag(current_user, red_flag_id):
+    # @login_required
+    def get_a_redflag( red_flag_id, current_user=1):
         data = database.get_incident_by_id(red_flag_id, "red_flag")
         if data:
             return make_response(

@@ -32,7 +32,7 @@ function get_interventions() {
             let location = `${intervention.location}`;
 
                 td1.innerHTML = `${intervention.id}`;
-                td2.innerHTML = `${intervention.created_on}`;
+                td2.innerHTML = `<a href="intervention_detail.html" onclick="get_id(${intervention.id})">${intervention.created_on}</a>`;
                 td3.innerHTML = `${intervention.status}`;
                 td4.innerHTML = `${intervention.comment}`;
                 td5.innerHTML = location.substring(1, location.length-1);
