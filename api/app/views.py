@@ -284,7 +284,7 @@ def create_app(config_name):
                             if access_token:
                                 response = {
                                     'status': 200,
-                                    'data': [{'access_token': access_token.decode()}]
+                                    'data': {'access_token': access_token.decode()}
                                 }
                                 return make_response(jsonify(response)), 200
                         else:
