@@ -6,6 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="text/html" charset="utf-8" />
     <link rel="stylesheet" type="text/css" media="screen" href="../assets/css/style.css" />
     <script type="text/javascript" src="../assets/js/functions.js"></script>
+    <script type="text/javascript" src="../assets/js/post_incidents.js"></script>
     <title>iReporter</title>
     <link rel="shortcut icon" href="../assets/images/favicon.png" type="image/x-icon">
 </head>
@@ -53,7 +54,7 @@
     <div class="footer">Andela Level Up 35 December - Anorld Mukone, 2018</div>
 
     <div id="id02" class="modal">
-        <form class="modal-content animate" action="active_orders.html">
+        <form class="modal-content animate" onSubmit="return post_redflag();">
             <div class="imgcontainer">
                 <span onclick="document.getElementById('id02').style.display='none'" class="close" title="Close Modal">&times;</span>
                 <img src="../assets/images/flag2.png" alt="Avatar" class="avatar">
@@ -62,18 +63,18 @@
                 <div>
                     <form action="/action_page.php">
                         <label for="lname">Location</label>
-                        <input type="text" id="lname" name="user_phone" placeholder="Time incident happened..">
+                        <input type="text" id="location" placeholder="Time incident happened..">
 
                         <label for="lname">Image</label>
-                        <input type="file" id="lname" name="names" placeholder="Names">
+                        <input type="text" id="image" placeholder="Names">
 
                         <label for="lname">Video</label>
-                        <input type="file" id="lname" name="incident" placeholder="Explain what happened..">
+                        <input type="text" id="video" placeholder="Explain what happened..">
  
                         <label for="lname">Comment</label>
-                        <input type="text" id="lname" name="incident" placeholder="Explain what happened..">
+                        <input type="text" id="comment"  placeholder="Explain what happened..">
 
-                        <input type="submit" value="SUBMIT REDFLAG">
+                        <input type="submit" value="SUBMIT RED-FLAG">
                     </form>
                 </div>
             </div>
@@ -116,7 +117,8 @@
         // When the user clicks anywhere outside of the modal, close it
         window.onclick = function (event) {
             if (event.target == modal1 || event.target == modal3) {
-                modal.style.display = "none";
+                modal1.style.display = "none";
+                modal3.style.display = "none";
             }
         }
     </script>
