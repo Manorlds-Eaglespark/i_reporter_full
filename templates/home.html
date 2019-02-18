@@ -18,11 +18,11 @@
 
     <div style="overflow:auto">
         <div class="menu">
-            <a href="home.html">HOME -></a>
+            <a href="home.html">@ HOME</a>
             <a href="user_profile.html">PROFILE</a>
-            <a href="records.html">ALL RECORDS</a>
+            <a href="records.html">RECORDS</a>
             <a href="redflags.html">REDFLAGS</a>
-            <a href="intervation.html">INTERVATIONS</a>
+            <a href="interventions.html">INTERVENTIONS</a>
         </div>
 
         <div class="main">
@@ -61,22 +61,18 @@
             <div class="container">
                 <div>
                     <form action="/action_page.php">
-                        <label for="lname">Time of incident</label>
+                        <label for="lname">Location</label>
                         <input type="text" id="lname" name="user_phone" placeholder="Time incident happened..">
 
-                        <label for="lname">Persons involved</label>
-                        <input type="text" id="lname" name="names" placeholder="Names">
+                        <label for="lname">Image</label>
+                        <input type="file" id="lname" name="names" placeholder="Names">
 
-                        <label for="lname">Incident</label>
+                        <label for="lname">Video</label>
+                        <input type="file" id="lname" name="incident" placeholder="Explain what happened..">
+ 
+                        <label for="lname">Comment</label>
                         <input type="text" id="lname" name="incident" placeholder="Explain what happened..">
 
-                        <label for="sector">Select sector</label>
-                        <select id="office" name="office">
-                            <option value="small">Government official</option>
-                            <option value="medium">Police Persons</option>
-                            <option value="large">Public Hospital</option>
-                            <option value="large">Other</option>
-                        </select>
                         <input type="submit" value="SUBMIT REDFLAG">
                     </form>
                 </div>

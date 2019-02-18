@@ -350,4 +350,53 @@ def create_app(config_name):
                         404, "Resource not found.")
 
 
+    @app.route('/api/v2/users/<user_id>/stats', methods=['GET'])
+    # @login_required
+    def get_user_stats(user_id, current_user = 1):
+        new_redflags = database.get_incident_count(user_id, 'New', 'red_flag')[0]
+        investigated_redflags = database.get_incident_count(user_id, 'Under-Investigation', 'red_flag')[0]
+        resolved_redflags = database.get_incident_count(user_id, 'Resolved', 'red_flag')[0]
+        rejected_redflags = database.get_incident_count(user_id, 'Rejected', 'red_flag')[0]
+        redflag_count = database.get_incident_type_count(user_id,  'red_flag')[0]
+        new_interventions = database.get_incident_count(user_id, 'New', 'intervention')[0]
+        investigated_interventions = database.get_incident_count(user_id, 'New', 'intervention')[0]
+        resolved_interventions = database.get_incident_count(user_id, 'New', 'intervention')[0]
+        rejected_interventions = database.get_incident_count(user_id, 'New', 'intervention')[0]
+        interventions_count = database.get_incident_type_count(user_id,  'intervention')[0]
+        return make_response(
+                    jsonify({"status": 200, "data": {
+                        'new_redflags': new_redflags,
+                        'investigated_redflags': investigated_redflags,
+                        'resolved_redflags': resolved_redflags,
+                        'rejected_redflags': rejected_redflags,
+                        'redflag_total': redflag_count,
+                        'new_interventions': new_interventions,
+                        'investigated_interventions': investigated_interventions,
+                        'resolved_interventions': resolved_interventions,
+                        'rejected_interventions': rejected_interventions,
+                        'interventions_total': interventions_count
+                    }})), 200
+
+    
+    @app.route('/api/v2/users/<user_id>/red-flags', methods=['GET'])
+    # @login_required
+    def get_red_flag_by_user(user_id, current_user=1):
+        incidents = database.get_incident_by_created_by(user_id, 'red_flag')
+        if incidents:
+            return make_response(jsonify({"status": 200, "data": Helper_Functions.get_dict_incidents(incidents)}))
+        else:
+            return make_response(
+                jsonify({"status": 404, "error": "You have not reported any Red-flags yet."}))
+
+
+    @app.route('/api/v2/users/<user_id>/interventions', methods=['GET'])
+    # @login_required
+    def get_intervention_by_user(user_id, current_user=1):
+        incidents = database.get_incident_by_created_by(user_id, 'intervention')
+        if incidents:
+            return make_response(jsonify({"status": 200, "data": Helper_Functions.get_dict_incidents(incidents)}))
+        else:
+            return make_response(
+                jsonify({"status": 404, "error": "You have not reported any Interventions yet."}))
+
     return app

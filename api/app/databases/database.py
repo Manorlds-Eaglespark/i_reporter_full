@@ -152,6 +152,27 @@ class Database:
         incidents = self.cursor.fetchall()
         return incidents
 
+    def get_incident_by_created_by(self, user_id, record_type):
+        sql_get_incidents_query = """SELECT * FROM incidents where t_ype=%s and created_by=%s;"""
+        self.cursor.execute(sql_get_incidents_query, (record_type, user_id))
+        incidents = self.cursor.fetchall()
+        return incidents
+
+    def get_incident_count(self, user_id, status, t_ype):
+        postgresql_select_incidents_query = """SELECT COUNT(id) FROM incidents where t_ype = %s AND status = %s AND created_by = %s"""
+        self.cursor.execute(
+            postgresql_select_incidents_query, (t_ype, status, user_id))
+        count = self.cursor.fetchone()
+        return count
+
+
+    def get_incident_type_count(self, user_id, _type):
+        postgresql_select_incidents_query = """SELECT COUNT(id) FROM incidents where t_ype = %s AND created_by = %s"""
+        self.cursor.execute(
+            postgresql_select_incidents_query, (_type, user_id))
+        count = self.cursor.fetchone()
+        return count
+
     def delete_all_tables(self):
         sql_clean_command_users_table = "TRUNCATE TABLE users RESTART IDENTITY CASCADE"
         sql_clean_command_incidents_table = "TRUNCATE TABLE incidents RESTART IDENTITY CASCADE"
