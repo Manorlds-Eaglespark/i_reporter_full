@@ -1,14 +1,12 @@
 
 
 
-
-const feedback_bar = document.getElementById('feedback_bar');
-
-
 document.getElementById('login-form').addEventListener('submit', login_user)
 
 function login_user(e) {
     e.preventDefault();
+
+    feedback_bar = document.getElementById('feedback_bar3');
     data_ = {
         email: document.getElementById("email").value,
         password: document.getElementById("pass_word").value
@@ -26,7 +24,16 @@ function login_user(e) {
     })
         .then(res => res.json())
         .then(data => {
-            console.log(data);
+            if (data.status == '200')
+            {
+                localStorage.setItem('access_token', data.data.access_token)
+                window.location.href = "./home.html";  
+            }
+            else
+            {
+                feedback_bar.innerHTML = `${data.error}`
+            }
+
         })
         .catch(function (error) {
             console.log({"error":error});
@@ -37,6 +44,9 @@ function login_user(e) {
 document.getElementById('register-form').addEventListener('submit', register_user)
 
 function register_user(e) {
+
+    feedback_bar = document.getElementById('feedback_bar4');
+    
     e.preventDefault();
     data_ = {
         firstname: document.getElementById("firstname").value,

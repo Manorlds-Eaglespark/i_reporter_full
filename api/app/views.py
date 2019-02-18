@@ -10,7 +10,6 @@ from app.models.user import User
 from app.mail import Mail
 from os.path import join, dirname
 from dotenv import load_dotenv
-from app.utilities.cors_required import *
 from app.utilities.login_required import login_required, admin_required
 from app.utilities.register_validation import Register_Validation
 from app.utilities.login_validation import Login_Validation
@@ -44,8 +43,8 @@ def create_app(config_name):
             return make_response(jsonify(response)), 200
 
         @app.route('/api/v2/red-flags', methods=['GET'])
-        # @login_required
-        def get_redflags(current_user=1):
+        @login_required
+        def get_redflags(current_user):
             data = database.get_all_red_flags()
             if len(data) > 0:
                 return make_response(jsonify({"status": 200, "redflags": Helper_Functions.get_dict_incidents(data)})), 200
@@ -63,12 +62,11 @@ def create_app(config_name):
                 return Helper_Functions.the_return_method(404, "Resource not found.")
                 
 
-        @app.route('/api/v2/red-flags', methods=['POST', 'OPTIONS']) 
-        # @login_required
-        @crossdomain(origin='*')
-        def create_redflag(current_user = 1):
+        @app.route('/api/v2/red-flags', methods=['POST']) 
+        @login_required
+        def create_redflag(current_user):
             input_data = json.loads(request.data)
-            created_by = current_user
+            created_by = current_user["id"]
             doc_type = 'red_flag'
             location = input_data['location']
             status = 'New'
@@ -265,13 +263,18 @@ def create_app(config_name):
             input_data = json.loads(request.data)
             password = input_data['password']
             email = input_data['email']
+
             validate_input = Login_Validation(
                 {"email": email, "password": password})
+
             validated_input = validate_input.check_inputs()
+
             database = Database()
+
             if validated_input[0] == 200:
                 try:
                     user_data = database.get_user_by_email(email)
+
                     if user_data:
                         user_info = list(user_data)
                         user = User(user_info[1:])
@@ -298,10 +301,12 @@ def create_app(config_name):
                         'message': str(e)
                     }
                     return make_response(jsonify(response)), 500
+
             else:
                 return Helper_Functions.the_return_method(
                     validated_input[0], validated_input[1])
-        
+
+            
         @app.route('/api/v2/auth/register', methods=['POST'])
         def sign_up_user():
             input_data = json.loads(request.data)
@@ -390,6 +395,13 @@ def create_app(config_name):
                 return make_response(
                     jsonify({"status": 404, "error": "You have not reported any Red-flags yet."}))
 
+
+        @app.route('/api/v2/current_user', methods=['GET'])
+        @login_required
+        def get_current_user(current_user):
+            return make_response(
+                    jsonify({"status": 200, "data": current_user})), 200
+         
 
         @app.route('/api/v2/users/<user_id>/interventions', methods=['GET'])
         # @login_required

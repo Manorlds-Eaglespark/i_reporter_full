@@ -12,13 +12,20 @@ body {
     background-color: white;
 }
 
-#feedback_bar{
+
+.feedback_bar{
     width: 100%; 
-    background-color: burlywood;
+    background-color: coral;
     text-align: center; 
     color: white;
     border-radius: 7px;
     margin: 0 auto !important;
+}
+
+
+
+.user_id{
+    word-wrap: break-word;
 }
 
 
@@ -540,6 +547,7 @@ img {
 
 @media only screen and (max-width:620px) {
     /* For mobile phones: */
+    .user_id,
     .menu,
     .main,
     .right,
