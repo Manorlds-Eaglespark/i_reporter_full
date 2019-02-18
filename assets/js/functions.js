@@ -11,15 +11,23 @@ function login_user() {
         email: document.getElementById("email").value,
         password: document.getElementById("password").value
     }
-    let request = new Request('http://127.0.0.1:5000/api/v2/auth/login', {
+    // let request = new Request('http://127.0.0.1:5000/api/v2/auth/login', {
+    //     method: "POST",
+    //     headers: new Headers({
+    //         "Content-Type": "application/json"
+    //     }),
+    //     body: JSON.stringify(data_)
+    // });
+
+    fetch('http://127.0.0.1:5000/api/v2/red-flags',
+    {
         method: "POST",
         headers: new Headers({
-            "Content-Type": "application/json"
+            "Content-Type": "application/json",
+            "Access-Control-Allow-Origin": "*"
         }),
         body: JSON.stringify(data_)
-    });
-
-    fetch(request)
+    })
         .then(res => res.json())
         .then(data => {
             console.log(data);
