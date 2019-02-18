@@ -13,12 +13,25 @@ body {
 }
 
 #feedback_bar{
-    width: 70%; 
+    width: 100%; 
     background-color: burlywood;
     text-align: center; 
     color: white;
-    border-radius: 7px
+    border-radius: 7px;
+    margin: 0 auto !important;
 }
+
+
+
+#feedback_signup{
+    width: 100%; 
+    background-color: #009688;
+    text-align: center; 
+    color: white;
+    border-radius: 7px;
+    margin: 0 auto !important;
+}
+
 
 #pointer_link {
     text-decoration: none;

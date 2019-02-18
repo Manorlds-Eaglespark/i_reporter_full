@@ -5,6 +5,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <meta http-equiv="X-UA-Compatible" content="text/html" charset="utf-8" />
         <link rel="stylesheet" type="text/css" media="screen" href="../assets/css/style.css" />
+        
         <title>iReporter</title>
         <link rel="shortcut icon" href="../assets/images/favicon.png" type="image/x-icon">
 </head>
@@ -29,6 +30,8 @@
                 <img class="bannerImage" src="../assets/images/take_action1.jpg">
             </div>
 
+            <div id="feedback_signup"></div>
+
             <div class="father">
                 <div class="sister">
                     <p id="theme">Signup today</p>
@@ -49,7 +52,7 @@
 
             <div id="id01" class="modal">
 
-                <form class="modal-content animate" enctype="multipart/form-data" method="POST">
+                <form class="modal-content animate" id='login-form'>
                     <div class="imgcontainer">
                         <span onclick="document.getElementById('id01').style.display='none'" class="close" title="Close Modal">&times;</span>
                         <img src="../assets/images/login2.png" alt="Avatar" class="avatar">
@@ -57,47 +60,50 @@
 
                     <div class="container">
                         <label for="uname"><b>Email</b></label>
-                        <input type="text" placeholder="Enter Email" id="email" required>
+                        <input type="text" placeholder="Enter Email" id="email" required/>
 
                         <label for="psw"><b>Password</b></label>
-                        <input type="password" placeholder="Enter Password" id="password" required>
+                        <input type="text" placeholder="Enter Password" id="pass_word" required/>
 
-                        <button class="login_button" onclick="login_user()" type="submit">LOGIN</button>
+                        <button class="login_button" type="submit">LOGIN</button>
                        
                     </div>
                 </form>
             </div>
 
             <div id="id03" class="modal">
-                <form class="modal-content animate" method="POST">
+                <form class="modal-content animate" id='register-form'>
                     <div class="imgcontainer">
                         <span onclick="document.getElementById('id03').style.display='none'" class="close" title="Close Modal">&times;</span>
                         <img src="../assets/images/new-user2.png" alt="Avatar" class="avatar">
                     </div>
 
-                    <div class="container">                        
+                    <div class="container">
+
+                            <div id="feedback_bar"></div>
+
                         <label for="uname"><b>Firstname</b></label>
-                        <input type="text" placeholder="Enter Username" name="firstname" required>
+                        <input type="text" placeholder="Enter Username" id="firstname" required>
 
                         <label for="uname"><b>Lastname</b></label>
-                        <input type="text" placeholder="Enter Username" name="lastname" required>
+                        <input type="text" placeholder="Enter Username" id="lastname" required>
 
                         <label for="uname"><b>Othernames</b></label>
-                        <input type="text" placeholder="Enter Username" name="othernames" required>
+                        <input type="text" placeholder="Enter Username" id="othernames" required>
 
                         <label for="uname"><b>Email</b></label>
-                        <input type="text" placeholder="Enter Username" name="email" required>
+                        <input type="text" placeholder="Enter Username" id="emai_l" required>
 
                         <label for="psw"><b>Password</b></label>
-                        <input type="password" placeholder="Enter Password" name="password" required>
+                        <input type="password" placeholder="Enter Password" id="password" required>
                         
                         <label for="uname"><b>Phone Number</b></label>
-                        <input type="text" placeholder="Enter Username" name="phonenumber" required>
+                        <input type="text" placeholder="Enter Username" id="phonenumber" required>
 
-                        <label for="uname"><b>User Name</b></label>
-                        <input type="text" placeholder="Enter Username" name="username" required>
+                        <label for="uname"><b>UserName</b></label>
+                        <input type="text" placeholder="Enter Username" id="username" required>
                         
-                        <button class="register_button" onclick="signup()" type="submit">REGISTER</button>
+                        <button class="register_button" type="submit">REGISTER</button>
 
                     </div>
 
@@ -133,8 +139,7 @@
     </div>
 
     <div class="footer">Andela Bootcamp 15 - Anorld Mukone, 2019</div>
-    <script type="text/javascript" src="../assets/js/functions.js"></script>
-
+    <script type="text/javascript" src="../assets/js/auth.js"></script>
 </body>
 
 </html>
