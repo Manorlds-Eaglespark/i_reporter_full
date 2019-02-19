@@ -26,7 +26,7 @@ class User:
     def generate_token(self, user_id, isadmin):
         try:
             payload = {
-                'exp': datetime.utcnow() + timedelta(minutes=240),
+                'exp': datetime.utcnow() + timedelta(minutes=120),
                 'iat': datetime.utcnow(),
                 'sub': user_id,
                 'adn': isadmin

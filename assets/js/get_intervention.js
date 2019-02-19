@@ -10,8 +10,8 @@ function get_intervention_detail() {
     fetch('http://127.0.0.1:5000/api/v2/interventions/'+item_id,
     {
         headers:{
-            'Authorization':'Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJleHAiOjE1NTAyNDk4MDAsImlhdCI6MTU1MDI0MjYwMCwic3ViIjoyLCJhZG4iOiJGYWxzZSJ9.LrGBQnVBB4DsT3OmUdVMHENLX3HihNUSuLjo661IU1g'
-        }
+            'Authorization': localStorage.getItem('access_token')
+         }
     })
     .then(res => res.json())
     .then(data => {
@@ -27,6 +27,13 @@ function get_intervention_detail() {
             document.getElementById("item_images").innerHTML = `${intervention.images}`;
             document.getElementById("item_videos").innerHTML = `${intervention.videos}`;
             document.getElementById("item_creator").innerHTML = `${intervention.created_by}`;
+
+            if (intervention.created_by == localStorage.getItem('user_id')){
+                document.getElementById("only_creater").style.display = "block"
+            }
+            else{
+                document.getElementById("only_creater").style.display = "none"
+            }
         }
     else
         {

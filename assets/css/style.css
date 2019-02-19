@@ -76,8 +76,12 @@ body {
 }
 
 .LogOut {
-    text-align: left;
     padding: 14px;
+    background-color: #f1eded;
+    color: burlywood;
+    border: none;
+    width: 100%;
+    border-radius: 7px;
 }
 
 .LogOut a {

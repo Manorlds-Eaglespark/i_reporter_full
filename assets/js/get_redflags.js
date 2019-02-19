@@ -4,8 +4,8 @@ function get_redflags() {
     fetch('http://127.0.0.1:5000/api/v2/red-flags',
     {
         headers:{
-            'Authorization':'Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJleHAiOjE1NTAxMTAyNjcsImlhdCI6MTU1MDA1MDI2Nywic3ViIjoyLCJhZG4iOiJGYWxzZSJ9.gVFIEfoqdOpbIWLWCQV0i9pMBmsQ6tCrpCl2Dm3e-Rc'
-        }
+            'Authorization': localStorage.getItem('access_token')
+           }
     })
     .then(res => res.json())
     .then(data => {

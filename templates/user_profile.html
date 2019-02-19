@@ -5,18 +5,14 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <meta http-equiv="X-UA-Compatible" content="text/html" charset="utf-8" />
         <link rel="stylesheet" type="text/css" media="screen" href="../assets/css/style.css" />
-        <script type="text/javascript" src="../assets/js/functions.js"></script>
-        <script type="text/javascript" src="../assets/js/get_interventions.js"></script>
-        <script type="text/javascript" src="../assets/js/get_redflags.js"></script>
-        <script type="text/javascript" src="../assets/js/user_profile.js"></script>
         <title>iReporter</title>
         <link rel="shortcut icon" href="../assets/images/favicon.png" type="image/x-icon">
 </head>
 
 <body>
-    <div class="pageHeading">
-        <span class="logo-l">i</span><span class="logo-r">Reporter</span>
-    </div>
+        <div class="pageHeading">
+                <span class="logo-l">i</span><span class="logo-r">Reporter</span> | <span id="user_identifier_profile" class="user_id"></span>
+            </div>
 
 
     <div style="overflow:auto">
@@ -31,7 +27,7 @@
         <div class="main">
             <p id="theme_about">A Stand Against Corruption.</p>
             
-            <div id="feedback_bar"></div>
+            <div id="feedback_bar" class="feedback_bar"></div>
 
             <h2>Details</h2>
             <div><b>Name</b>: <span id="name"></span></div>
@@ -96,8 +92,6 @@
 
         </div>
         <div class="right">
-            <div class="LogOut"><a href="index.html">Logout</a></div>
-        
             <h2 id="text_left">HOTLINE</h2>
             <p id="text_left"><img id="contact_images" src="../assets/images/call.png" alt=""> 0414 5555 555</p>
             <p id="text_left"><img id="contact_images" src="../assets/images/call.png" alt=""> 0414 4444 444</p>
@@ -106,8 +100,20 @@
         </div>
 
     </div>
-    <div class="footer">Andela Level Up 35 December - Anorld Mukone, 2018</div>
-<script>get_user_detail(); get_user_stats(); get_user_incidents();</script>
+    <div class="footer">Andela Bootcamp 15 - Anorld Mukone, 2019</div>
+
+    
+<script type="text/javascript" src="../assets/js/functions.js"></script>
+<script type="text/javascript" src="../assets/js/get_interventions.js"></script>
+<script type="text/javascript" src="../assets/js/get_redflags.js"></script>
+<script type="text/javascript" src="../assets/js/user_profile.js"></script>
+<script>
+get_user_detail();
+ get_user_stats(); 
+ get_user_incidents();
+ user_name_detail();
+</script>
+
 </body>
 
 </html>

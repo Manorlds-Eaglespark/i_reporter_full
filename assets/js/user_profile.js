@@ -2,13 +2,15 @@
 
 
 function get_user_detail() {
-    let user_id = 2;
-    const feedback_bar = document.getElementById('feedback_bar');
-    fetch('http://127.0.0.1:5000/api/v2/users/'+user_id,
+
+    document.getElementById("user_identifier_profile").innerHTML = `${localStorage.getItem('first_name')}` + ` ${localStorage.getItem('last_name')}`;
+    
+    feedback_bar = document.getElementById('feedback_bar');
+    fetch('http://127.0.0.1:5000/api/v2/users/'+localStorage.getItem('user_id'),
     {
         headers:{
-            'Authorization':'Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJleHAiOjE1NTAzMDA0MTUsImlhdCI6MTU1MDI5MzIxNSwic3ViIjoyLCJhZG4iOiJGYWxzZSJ9.5AbekCM-quMiebNR1hmFaPfEcxVOv0Ax6-X2yXrl6xI'
-        }
+            'Authorization': localStorage.getItem('access_token')
+     }
     })
     .then(res => res.json())
     .then(data => {
@@ -43,12 +45,12 @@ function get_user_detail() {
 
 
 function get_user_stats() {
-    let user_id = 1;
+    let user_id = localStorage.getItem('user_id');
     const feedback_bar = document.getElementById('feedback_bar');
     fetch('http://127.0.0.1:5000/api/v2/users/'+user_id+'/stats',
     {   
         headers:{
-            'Authorization':'Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJleHAiOjE1NTAzMDA0MTUsImlhdCI6MTU1MDI5MzIxNSwic3ViIjoyLCJhZG4iOiJGYWxzZSJ9.5AbekCM-quMiebNR1hmFaPfEcxVOv0Ax6-X2yXrl6xI'
+            'Authorization': localStorage.getItem('access_token')
         }
     })
     .then(res => res.json())
@@ -87,14 +89,14 @@ function get_user_stats() {
 
 
 function get_user_incidents() {
-    let user_id = 1;
+    let user_id = localStorage.getItem('user_id');
     const rf_table = document.getElementById('redflag_table');
     const i_table = document.getElementById('interventions_table');
     const feedback_bar = document.getElementById('feedback_bar');
     fetch('http://127.0.0.1:5000/api/v2/users/'+user_id+'/red-flags',
     {
         headers:{
-            'Authorization':'Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJleHAiOjE1NTAzMDA0MTUsImlhdCI6MTU1MDI5MzIxNSwic3ViIjoyLCJhZG4iOiJGYWxzZSJ9.5AbekCM-quMiebNR1hmFaPfEcxVOv0Ax6-X2yXrl6xI'
+            'Authorization': localStorage.getItem('access_token')
         }
     })
     .then(res => res.json())
@@ -146,7 +148,7 @@ function get_user_incidents() {
         fetch('http://127.0.0.1:5000/api/v2/users/'+user_id+'/interventions',
         {
             headers:{
-                'Authorization':'Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJleHAiOjE1NTAxMTAyNjcsImlhdCI6MTU1MDA1MDI2Nywic3ViIjoyLCJhZG4iOiJGYWxzZSJ9.gVFIEfoqdOpbIWLWCQV0i9pMBmsQ6tCrpCl2Dm3e-Rc'
+                'Authorization': localStorage.getItem('access_token')
             }
         })
         .then(res => res.json())
@@ -196,3 +198,4 @@ function get_user_incidents() {
         });
     
     }
+

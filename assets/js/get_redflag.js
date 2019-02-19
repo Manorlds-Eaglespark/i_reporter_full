@@ -10,7 +10,7 @@ function get_redflag_detail() {
     fetch('http://127.0.0.1:5000/api/v2/red-flags/'+item_id,
     {
         headers:{
-            'Authorization':'Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJleHAiOjE1NTAzMDA0MTUsImlhdCI6MTU1MDI5MzIxNSwic3ViIjoyLCJhZG4iOiJGYWxzZSJ9.5AbekCM-quMiebNR1hmFaPfEcxVOv0Ax6-X2yXrl6xI'
+            'Authorization': localStorage.getItem('access_token')
         }
     })
     .then(res => res.json())
@@ -27,6 +27,13 @@ function get_redflag_detail() {
             document.getElementById("item_images").innerHTML = `${redflag.images}`;
             document.getElementById("item_videos").innerHTML = `${redflag.videos}`;
             document.getElementById("item_creator").innerHTML = `${redflag.created_by}`;
+
+            if (redflag.created_by == localStorage.getItem('user_id')){
+                document.getElementById("only_creater").style.display = "block"
+            }
+            else{
+                document.getElementById("only_creater").style.display = "none"
+            }
         }
     else
         {

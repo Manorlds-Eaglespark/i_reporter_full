@@ -11,9 +11,9 @@
 </head>
 
 <body onload="get_redflags()">
-    <div class="pageHeading">
-        <span class="logo-l">i</span><span class="logo-r">Reporter</span>
-    </div>
+        <div class="pageHeading">
+                <span class="logo-l">i</span><span class="logo-r">Reporter</span> | <span id="user_identifier_profile" class="user_id"></span>
+            </div>
 
 
     <div style="overflow:auto">
@@ -29,7 +29,7 @@
             <p id="theme_about">A Stand Against Corruption.</p>
             <h4>Always Important To Add Support To Your Claims</h4>
 
-            <div id="feedback_bar"></div>
+            <div id="feedback_bar" class="feedback_bar"></div>
 
             <h5 id="theme"><img id="img_s" src="../assets/images/flag.png" alt="logo">REDFLAGS</h5>
             <div style="width:100%">
@@ -52,8 +52,6 @@
         </div>
 
         <div class="right">
-            <div class="LogOut"><a href="index.html">Logout</a></div>
-
             <h2 id="text_left">HOTLINE</h2>
             <p id="text_left"><img id="contact_images" src="../assets/images/call.png" alt=""> 0414 5555 555</p>
             <p id="text_left"><img id="contact_images" src="../assets/images/call.png" alt=""> 0414 4444 444</p>
@@ -63,7 +61,7 @@
 
     </div>
     <div class="footer">Andela Level Up 35 December - Anorld Mukone, 2018</div>
-
+    <script>user_name_detail();</script>
 </body>
 
 </html>

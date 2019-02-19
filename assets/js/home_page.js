@@ -2,6 +2,7 @@
 
 document.getElementById('create_red_flag').addEventListener('submit', create_redflag);
 document.getElementById('create_intervention').addEventListener('submit', create_intervention);
+document.getElementById('logout').addEventListener('click', logout_user);
 
 
 function get_user_name(){
@@ -9,16 +10,17 @@ function get_user_name(){
     fetch('http://127.0.0.1:5000/api/v2/current_user',
     {
         headers:{
-            'Authorization': 'Bearer'+" "+localStorage.getItem('access_token')
+            'Authorization': localStorage.getItem('access_token')
         }
     })
     .then(res => res.json())
     .then(data => {
-    
+    console.log(data)
     if (data.status == '200')
         {
             localStorage.setItem('first_name', data.data.firstname);
             localStorage.setItem('last_name', data.data.lastname);
+            localStorage.setItem('user_id', data.data.id);
             document.getElementById("user_identifier").innerHTML = `${ data.data.firstname}` + ` ${ data.data.lastname}`;
         }
     else
@@ -55,7 +57,7 @@ function create_redflag(e) {
             "Accept":"application/json",
             "Content-Type":"application/json",
             "Access-Control-Allow-Origin": "*",
-            'Authorization': 'Bearer'+" "+localStorage.getItem('access_token')
+            'Authorization': localStorage.getItem('access_token')
         },
         body: JSON.stringify(data_)
     })
@@ -92,7 +94,7 @@ function create_intervention(e) {
             "Accept":"application/json",
             "Content-Type":"application/json",
             "Access-Control-Allow-Origin": "*",
-            'Authorization': 'Bearer'+" "+localStorage.getItem('access_token')
+            'Authorization': localStorage.getItem('access_token')
         },
         body: JSON.stringify(data_)
     })
@@ -111,4 +113,9 @@ function create_intervention(e) {
                 feedback_bar2.innerHTML = `${data.error}`
             }
         });
+}
+
+function logout_user(){
+    localStorage.clear();
+    window.location.href = "./index.html";
 }
