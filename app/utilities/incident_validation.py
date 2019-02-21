@@ -21,8 +21,8 @@ class Incident_Validation():
         self.comment = init_dict["comment"]
 
     def check_types(self):
-        if not isinstance(self.location, list) or not self.location:
-            return [400, "Valid location required. Location should be of type list"]
+        if not self.location or not isinstance(self.images, list):
+            return [400, "Valid location required"]
         elif not isinstance(self.images, list) or not self.images or len(self.images) < 1:
             return [400, "Add images links in this format: [a, b, c]"]
         elif not isinstance(self.videos, list) or not self.videos or len(self.videos) < 1:

@@ -44,8 +44,8 @@ def create_app(config_name):
             return make_response(jsonify(response)), 200
 
         @app.route('/api/v2/red-flags', methods=['GET'])
-        # @login_required
-        def get_redflags(current_user=1):
+        @login_required
+        def get_redflags(current_user):
             data = database.get_all_red_flags()
             if len(data) > 0:
                 return make_response(jsonify({"status": 200, "redflags": Helper_Functions.get_dict_incidents(data)})), 200
@@ -53,8 +53,8 @@ def create_app(config_name):
                 return Helper_Functions.the_return_method(404, "No resource added yet.")
             
         @app.route('/api/v2/red-flags/<red_flag_id>', methods=['GET'])
-        # @login_required
-        def get_a_redflag( red_flag_id, current_user=1):
+        @login_required
+        def get_a_redflag(current_user, red_flag_id):
             data = database.get_incident_by_id(red_flag_id, "red_flag")
             if data:
                 return make_response(
@@ -63,12 +63,11 @@ def create_app(config_name):
                 return Helper_Functions.the_return_method(404, "Resource not found.")
                 
 
-        @app.route('/api/v2/red-flags', methods=['POST', 'OPTIONS']) 
-        # @login_required
-        @crossdomain(origin='*')
-        def create_redflag(current_user = 1):
+        @app.route('/api/v2/red-flags', methods=['POST']) 
+        @login_required
+        def create_redflag(current_user):
             input_data = json.loads(request.data)
-            created_by = current_user
+            created_by = current_user["id"]
             doc_type = 'red_flag'
             location = input_data['location']
             status = 'New'
@@ -104,7 +103,7 @@ def create_app(config_name):
 
 
         @app.route('/api/v2/red-flags/<red_flag_id>/location', methods=['PATCH'])
-        # @login_required
+        @login_required
         def update_redflag_location(current_user, red_flag_id):
             location = json.loads(request.data)['location']
             data = database.update_location_of_incident(
@@ -116,7 +115,7 @@ def create_app(config_name):
                             jsonify({"status": 404, "error": "Resource not found."}))
                 
         @app.route('/api/v2/red-flags/<red_flag_id>/comment', methods=['PATCH'])
-        # @login_required
+        @login_required
         def update_redflag_comment(current_user, red_flag_id):
             comment = json.loads(request.data)['comment']
             data = database.update_comment_of_incident(
@@ -128,7 +127,7 @@ def create_app(config_name):
                             jsonify({"status": 404, "error": "Resource not found."}))
                 
         @app.route('/api/v2/red-flags/<red_flag_id>', methods=['DELETE'])
-        # @login_required
+        @login_required
         def delete_redflag(current_user, red_flag_id):
             if database.get_incident_by_id(red_flag_id, 'red_flag'):
                 database.delete_incident(red_flag_id, 'red_flag')
@@ -139,7 +138,7 @@ def create_app(config_name):
                             jsonify({"status": 404, "error": "Resource not found."}))
             
         @app.route('/api/v2/red-flags/<red_flag_id>/status', methods=['PATCH'])
-        # @admin_required
+        @admin_required
         def update_redflag_status(current_user, red_flag_id):
             status = json.loads(request.data)['status']
             if database.get_incident_by_id(red_flag_id, 'red_flag'):
@@ -151,10 +150,10 @@ def create_app(config_name):
                                 jsonify({"status": 404, "error": "Resource not found."}))
                 
         @app.route('/api/v2/interventions', methods=['POST'])
-        # @login_required
-        def create_intervention_record(current_user=1):
+        @login_required
+        def create_intervention_record(current_user):
             input_data = json.loads(request.data)
-            created_by = current_user
+            created_by = current_user["id"]
             doc_type = 'intervention'
             location = input_data['location']
             status = 'New'
@@ -190,8 +189,8 @@ def create_app(config_name):
                             jsonify({"status": validated_inputs[0], "error": validated_inputs[1]}))
             
         @app.route('/api/v2/interventions', methods=['GET'])
-        # @login_required
-        def get_intervention_records(current_user=1):
+        @login_required
+        def get_intervention_records(current_user):
             data = database.get_all_interventions()
             if len(data) > 0:
                 return make_response(
@@ -201,8 +200,8 @@ def create_app(config_name):
                             404, "Sorry, no resource added yet.")
             
         @app.route('/api/v2/interventions/<intervention_id>', methods=['GET'])
-        # @login_required
-        def get_an_intervention_record(intervention_id, current_user = 1):
+        @login_required
+        def get_an_intervention_record(current_user, intervention_id ):
             data = database.get_incident_by_id(intervention_id, 'intervention')
             if data:
                 return make_response(
@@ -225,7 +224,7 @@ def create_app(config_name):
                             jsonify({"status": 404, "error": "Resource not found."}))
 
         @app.route('/api/v2/interventions/<intervention_id>/location', methods=['PATCH'])
-        # @login_required
+        @login_required
         def update_intervention_location(current_user, intervention_id):
             location = json.loads(request.data)['location']
             data = database.update_location_of_incident(
@@ -238,7 +237,7 @@ def create_app(config_name):
 
 
         @app.route('/api/v2/interventions/<intervention_id>', methods=['DELETE'])
-        # @login_required 
+        @login_required 
         def delete_interventions(current_user, intervention_id):
             if database.get_incident_by_id(intervention_id, 'intervention'):
                 database.delete_incident(intervention_id, 'intervention')
@@ -249,7 +248,7 @@ def create_app(config_name):
                         jsonify({"status": 404, "error": "Resource not found."}))
 
         @app.route('/api/v2/interventions/<intervention_id>/status', methods=['PATCH'])
-        # @admin_required
+        @admin_required
         def update_intervention_status(current_user, intervention_id):
             status = json.loads(request.data)['status']
             if database.get_incident_by_id(intervention_id, 'intervention'):
@@ -284,7 +283,7 @@ def create_app(config_name):
                             if access_token:
                                 response = {
                                     'status': 200,
-                                    'data': [{'access_token': access_token.decode()}]
+                                    'data': {'access_token': access_token.decode()}
                                 }
                                 return make_response(jsonify(response)), 200
                         else:
@@ -341,8 +340,8 @@ def create_app(config_name):
                     validated_input[0], validated_input[1])
 
         @app.route('/api/v2/users/<user_id>', methods=['GET'])
-        # @login_required
-        def get_user_by_id(user_id, current_user = 1):
+        @login_required
+        def get_user_by_id(current_user , user_id):
             data = database.get_user_by_id(user_id)
             if data:
                 return make_response(
@@ -353,17 +352,17 @@ def create_app(config_name):
 
 
         @app.route('/api/v2/users/<user_id>/stats', methods=['GET'])
-        # @login_required
-        def get_user_stats(user_id, current_user = 1):
+        @login_required
+        def get_user_stats(current_user, user_id  ):
             new_redflags = database.get_incident_count(user_id, 'New', 'red_flag')[0]
             investigated_redflags = database.get_incident_count(user_id, 'Under-Investigation', 'red_flag')[0]
             resolved_redflags = database.get_incident_count(user_id, 'Resolved', 'red_flag')[0]
             rejected_redflags = database.get_incident_count(user_id, 'Rejected', 'red_flag')[0]
             redflag_count = database.get_incident_type_count(user_id,  'red_flag')[0]
             new_interventions = database.get_incident_count(user_id, 'New', 'intervention')[0]
-            investigated_interventions = database.get_incident_count(user_id, 'New', 'intervention')[0]
-            resolved_interventions = database.get_incident_count(user_id, 'New', 'intervention')[0]
-            rejected_interventions = database.get_incident_count(user_id, 'New', 'intervention')[0]
+            investigated_interventions = database.get_incident_count(user_id, 'Under-Investigation', 'intervention')[0]
+            resolved_interventions = database.get_incident_count(user_id, 'Resolved', 'intervention')[0]
+            rejected_interventions = database.get_incident_count(user_id, 'Rejected', 'intervention')[0]
             interventions_count = database.get_incident_type_count(user_id,  'intervention')[0]
             return make_response(
                         jsonify({"status": 200, "data": {
@@ -381,8 +380,8 @@ def create_app(config_name):
 
         
         @app.route('/api/v2/users/<user_id>/red-flags', methods=['GET'])
-        # @login_required
-        def get_red_flag_by_user(user_id, current_user=1):
+        @login_required
+        def get_red_flag_by_user(current_user, user_id):
             incidents = database.get_incident_by_created_by(user_id, 'red_flag')
             if incidents:
                 return make_response(jsonify({"status": 200, "data": Helper_Functions.get_dict_incidents(incidents)}))
@@ -392,8 +391,8 @@ def create_app(config_name):
 
 
         @app.route('/api/v2/users/<user_id>/interventions', methods=['GET'])
-        # @login_required
-        def get_intervention_by_user(user_id, current_user=1):
+        @login_required
+        def get_intervention_by_user(current_user, user_id):
             incidents = database.get_incident_by_created_by(user_id, 'intervention')
             if incidents:
                 return make_response(jsonify({"status": 200, "data": Helper_Functions.get_dict_incidents(incidents)}))
@@ -401,4 +400,10 @@ def create_app(config_name):
                 return make_response(
                     jsonify({"status": 404, "error": "You have not reported any Interventions yet."}))
 
+        @app.route('/api/v2/current_user', methods=['GET'])
+        @login_required
+        def get_current_user(current_user):
+            return make_response(
+                            jsonify({"status": 200, "data": current_user})), 200
+         
     return app
