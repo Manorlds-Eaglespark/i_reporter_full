@@ -212,13 +212,13 @@ def create_app(config_name):
             
         @app.route('/api/v2/interventions/<intervention_id>/comment',
                 methods=['PATCH'])
-        # @login_required
+        @login_required
         def intervention_comment(current_user, intervention_id):
             comment = json.loads(request.data)['comment']
             data = database.update_comment_of_incident(
                 intervention_id, comment, 'intervention')
             if data:
-                return make_response(jsonify({"status": 200, "data":Incident.convert_to_dictionary(data), "message": "Updated intervention record’s comment"}))
+                return make_response(jsonify({"status": 202, "data":Incident.convert_to_dictionary(data), "message": "Updated intervention record’s comment"}))
             else:
                 return make_response(
                             jsonify({"status": 404, "error": "Resource not found."}))
