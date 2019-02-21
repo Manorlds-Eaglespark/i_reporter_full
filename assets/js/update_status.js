@@ -15,7 +15,7 @@ function update_status_redflag(e) {
         status: document.getElementById("redflag_status").value
     }
     
-    fetch('http://127.0.0.1:5000/api/v2/red-flags/'+item_id+'/status',
+    fetch('https://ireporter256version2.herokuapp.com/api/v2/red-flags/'+item_id+'/status',
     {
         method: "PATCH",
         headers: {

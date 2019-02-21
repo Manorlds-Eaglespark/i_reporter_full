@@ -11,7 +11,7 @@ function update_status_intervention(e) {
         status: document.getElementById("status").value
     }
     
-    fetch('http://127.0.0.1:5000/api/v2/interventions/'+item_id+'/status',
+    fetch('https://ireporter256version2.herokuapp.com/api/v2/interventions/'+item_id+'/status',
     {
         method: "PATCH",
         headers: {

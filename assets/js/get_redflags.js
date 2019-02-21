@@ -1,7 +1,7 @@
 function get_redflags() {
     const rf_table = document.getElementById('redflag_table');
     const feedback_bar = document.getElementById('feedback_bar');
-    fetch('http://127.0.0.1:5000/api/v2/red-flags',
+    fetch('https://ireporter256version2.herokuapp.com/api/v2/red-flags',
     {
         headers:{
             'Authorization': localStorage.getItem('access_token')

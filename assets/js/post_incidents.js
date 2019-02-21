@@ -20,7 +20,7 @@ function post_redflag() {
     fetch('https://ireporter256version2.herokuapp.com/api/v2/red-flags',
         {
             headers:new Headers({
-                'Authorization':'Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJleHAiOjE1NTAzMDA0MTUsImlhdCI6MTU1MDI5MzIxNSwic3ViIjoyLCJhZG4iOiJGYWxzZSJ9.5AbekCM-quMiebNR1hmFaPfEcxVOv0Ax6-X2yXrl6xI',
+                'Authorization': localStorage.getItem('access_token'),
                 "Content-Type" : 'text/plain',
                 "Access-Control-Allow-Origin": "*",
                 "Accept": "application/json",

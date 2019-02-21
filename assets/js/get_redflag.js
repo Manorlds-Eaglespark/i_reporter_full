@@ -7,7 +7,7 @@ function get_redflag_detail() {
     let item_id = localStorage.getItem("item_id");
     const rf_container = document.getElementById('redflag_detail');
     const feedback_bar = document.getElementById('feedback_bar');
-    fetch('http://127.0.0.1:5000/api/v2/red-flags/'+item_id,
+    fetch('https://ireporter256version2.herokuapp.com/api/v2/red-flags/'+item_id,
     {
         headers:{
             'Authorization': localStorage.getItem('access_token')

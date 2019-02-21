@@ -12,7 +12,7 @@ function login_user(e) {
         password: document.getElementById("pass_word").value
     }
     
-    fetch('http://127.0.0.1:5000/api/v2/auth/login',
+    fetch('https://ireporter256version2.herokuapp.com/api/v2/auth/login',
     {
         method: "POST",
         headers: {
@@ -59,7 +59,7 @@ function register_user(e) {
     }
 
     
-    fetch('http://127.0.0.1:5000/api/v2/auth/register',
+    fetch('https://ireporter256version2.herokuapp.com/api/v2/auth/register',
     {
         method: "POST",
         headers: {

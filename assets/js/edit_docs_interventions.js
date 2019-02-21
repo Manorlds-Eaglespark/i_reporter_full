@@ -10,7 +10,7 @@ function edit_intervention_location(e) {
         location: document.getElementById("location").value
     }
 
-    fetch('http://127.0.0.1:5000/api/v2/interventions/'+item_id+'/location',
+    fetch('https://ireporter256version2.herokuapp.com/api/v2/interventions/'+item_id+'/location',
     {
         method: "PATCH",
         headers: {
@@ -50,7 +50,7 @@ function edit_intervention_comment(e) {
         comment: document.getElementById("comment").value
     }
 
-    fetch('http://127.0.0.1:5000/api/v2/interventions/'+item_id+'/comment',
+    fetch('https://ireporter256version2.herokuapp.com/api/v2/interventions/'+item_id+'/comment',
     {
         method: "PATCH",
         headers: {

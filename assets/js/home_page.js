@@ -7,7 +7,7 @@ document.getElementById('logout').addEventListener('click', logout_user);
 
 function get_user_name(){
 
-    fetch('http://127.0.0.1:5000/api/v2/current_user',
+    fetch('https://ireporter256version2.herokuapp.com/api/v2/current_user',
     {
         headers:{
             'Authorization': localStorage.getItem('access_token')
@@ -56,7 +56,7 @@ function create_redflag(e) {
 
     console.log(data_);
     
-    fetch('http://127.0.0.1:5000/api/v2/red-flags',
+    fetch('https://ireporter256version2.herokuapp.com/api/v2/red-flags',
     {
         method: "POST",
         headers: {
@@ -93,7 +93,7 @@ function create_intervention(e) {
         comment: document.getElementById("comment_i").value
     }
     
-    fetch('http://127.0.0.1:5000/api/v2/interventions',
+    fetch('https://ireporter256version2.herokuapp.com/api/v2/interventions',
     {
         method: "POST",
         headers: {

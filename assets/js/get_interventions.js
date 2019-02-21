@@ -6,7 +6,7 @@
 function get_interventions() {
     const i_table = document.getElementById('interventions_table');
     const feedback_bar = document.getElementById('feedback_bar');
-    fetch('http://127.0.0.1:5000/api/v2/interventions',
+    fetch('https://ireporter256version2.herokuapp.com/api/v2/interventions',
     {
         headers:{
             'Authorization': localStorage.getItem('access_token')

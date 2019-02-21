@@ -11,7 +11,7 @@ function get_user_interventions() {
     const feedback_bar = document.getElementById('feedback_bar');
     let user_id = localStorage.getItem('user_id');
    
-    fetch('http://127.0.0.1:5000/api/v2/users/'+user_id+'/interventions',
+    fetch('https://ireporter256version2.herokuapp.com/api/v2/users/'+user_id+'/interventions',
     {
         headers:{
             'Authorization': localStorage.getItem('access_token')

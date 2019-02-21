@@ -3,7 +3,7 @@
 function delete_this_incident_redflag() {
     let item_id = localStorage.getItem("item_id");
     const feedback_bar = document.getElementById('feedback_bar');
-    fetch('http://127.0.0.1:5000/api/v2/red-flags/'+ item_id,
+    fetch('https://ireporter256version2.herokuapp.com/api/v2/red-flags/'+ item_id,
     {
         method: "DELETE",
         headers: {
@@ -35,7 +35,7 @@ function delete_this_incident_redflag() {
 function delete_this_incident_intervention() {
     let item_id = localStorage.getItem("item_id");
     const feedback_bar = document.getElementById('feedback_bar');
-    fetch('http://127.0.0.1:5000/api/v2/interventions/'+ item_id,
+    fetch('https://ireporter256version2.herokuapp.com/api/v2/interventions/'+ item_id,
     {
         method: "DELETE",
         headers: {
