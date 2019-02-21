@@ -38,6 +38,4 @@ class Register_Validation():
             return [406, "Make sure your password has a capital letter in it"]
         elif not re.match("^.+\\@(\\[?)[a-zA-Z0-9\\-\\.]+\\.([a-zA-Z]{2,3}|[0-9]{1,3})(\\]?)$", self.email) is not None:
             return [406, "Please enter a valid Email."]
-        elif  (not self.firstname.isalnum() or not self.lastname.isalnum() or not self.othernames.isalnum() and self.username.isalnum() or self.email.isspace() or self.phonenumber.isspace()):
-            return [406, "Make sure to use the English alphabert in the fields"]
         return [200, "All Good"]
