@@ -1,15 +1,16 @@
 
 
-document.getElementById('new-location-form').addEventListener('submit', edit_redflag_location)
 
-function edit_redflag_location(e) {
+document.getElementById('edit-location-form').addEventListener('submit', edit_intervention_location)
+
+function edit_intervention_location(e) {
     let item_id = localStorage.getItem("item_id");
     e.preventDefault();
     data_ = {
         location: document.getElementById("location").value
     }
 
-    fetch('http://127.0.0.1:5000/api/v2/red-flags/'+item_id+'/location',
+    fetch('http://127.0.0.1:5000/api/v2/interventions/'+item_id+'/location',
     {
         method: "PATCH",
         headers: {
@@ -26,8 +27,8 @@ function edit_redflag_location(e) {
             if (data.status == '202')
             {
                 
-                alert('Red-Flag Location was successfully Updated.');
-                window.location.href = "./redflag_detail.html";
+                alert('Intervention Location was successfully Updated.');
+                window.location.href = "./intervention_detail.html";
                 
             }
             else
@@ -40,16 +41,16 @@ function edit_redflag_location(e) {
 
 
 
-document.getElementById('new-comment-form').addEventListener('submit', edit_redflag_comment)
+document.getElementById('edit-comment-form').addEventListener('submit', edit_intervention_comment)
 
-function edit_redflag_comment(e) {
+function edit_intervention_comment(e) {
     let item_id = localStorage.getItem("item_id");
     e.preventDefault();
     data_ = {
         comment: document.getElementById("comment").value
     }
 
-    fetch('http://127.0.0.1:5000/api/v2/red-flags/'+item_id+'/comment',
+    fetch('http://127.0.0.1:5000/api/v2/interventions/'+item_id+'/comment',
     {
         method: "PATCH",
         headers: {
@@ -65,9 +66,9 @@ function edit_redflag_comment(e) {
 
             if (data.status == '202')
             {
-                
-                alert('Red-Flag Comment was successfully Updated.');
-                window.location.href = "./redflag_detail.html";
+        
+                alert('Intervention Comment was successfully Updated.');
+                window.location.href = "./intervention_detail.html";
                 
             }
             else

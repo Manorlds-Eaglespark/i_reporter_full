@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="text/html" charset="utf-8" />
+        <link rel="stylesheet" type="text/css" media="screen" href="./assets/css/style.css" />
+        <title>iReporter</title>
+        <link rel="shortcut icon" href="./assets/images/favicon.png" type="image/x-icon">
+</head>
+
+<body onload="get_user_interventions()">
+    
+        <div class="pageHeading">
+                <span class="logo-l">i</span><span class="logo-r">Reporter</span> | <span id="user_identifier_profile" class="user_id"></span>
+            </div>
+
+
+    <div style="overflow:auto">
+        <div class="menu">
+            <a href="home.html">HOME</a>
+            <a href="user_profile.html">PROFILE</a>
+            <a href="redflags.html">REDFLAGS</a>
+            <a href="interventions.html">@ INTERVATIONS</a>
+            <button id="logout" onclick="logout_user()" class="LogOut">Logout</button>
+        </div>
+
+        <div class="main">
+            <p id="theme_about">A Stand Against Corruption.</p>
+            <div class="head-liner">&nbsp;</div>
+            <h4>Always Important To Add Support To Your Claims</h4>
+
+            <div id="feedback_bar" class="feedback_bar"></div>
+
+            
+            <h5 id="theme_blue"><img id="img_s" src="./assets/images/sos.png" alt="logo">INTERVATION REQUESTS</h5>
+            <div style="width:100%">
+                    <table style="max-width:100%" id = "interventions_table"> 
+                            <tr>
+                                <th >Date</th>
+                                <th id="disappear_small">Status</th>
+                                <th>Comment</th>
+                               
+                            </tr>
+                        </table>
+        
+                        <br />
+            </div>
+
+
+        </div>
+
+        <div class="right">
+            <h2 id="text_left">HOTLINE</h2>
+            <p id="text_left"><img id="contact_images" src="./assets/images/call.png" alt=""> 0414 5555 555</p>
+            <p id="text_left"><img id="contact_images" src="./assets/images/call.png" alt=""> 0414 4444 444</p>
+            <p id="text_left"><img id="contact_images" src="./assets/images/email.png" alt=""> ask@ireporter.com</p>
+
+        </div>
+
+    </div>
+    <div class="footer">Andela Bootcamp 15 - Anorld Mukone, 2019</div>
+    
+    <script type="text/javascript" src="./assets/js/functions.js"></script>
+    <script type="text/javascript" src="./assets/js/get_interventions_user.js"></script>
+    <script>user_name_detail();</script>
+</body>
+
+</html>

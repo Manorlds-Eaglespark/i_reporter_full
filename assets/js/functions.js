@@ -14,3 +14,9 @@ function createNode(element) {
   function user_name_detail(){
     return document.getElementById("user_identifier_profile").innerHTML = `${localStorage.getItem('first_name')}` + ` ${localStorage.getItem('last_name')}`;
   }
+
+  
+  function logout_user(){
+    localStorage.clear();
+    window.location.href = "./index.html";
+}

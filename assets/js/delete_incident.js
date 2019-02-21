@@ -1,5 +1,4 @@
 
-document.getElementById('delete-red-flag').addEventListener('click', delete_this_incident_redflag)
 
 function delete_this_incident_redflag() {
     let item_id = localStorage.getItem("item_id");
@@ -32,8 +31,6 @@ function delete_this_incident_redflag() {
 }
 
 
-
-document.getElementById('delete-intervention').addEventListener('click', delete_this_incident_intervention)
 
 function delete_this_incident_intervention() {
     let item_id = localStorage.getItem("item_id");

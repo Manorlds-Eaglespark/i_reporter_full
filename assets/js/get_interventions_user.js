@@ -1,6 +1,9 @@
 
 
-
+function logout_user(){
+    localStorage.clear();
+    window.location.href = "./index.html";
+}
 
 
 function get_user_interventions() {

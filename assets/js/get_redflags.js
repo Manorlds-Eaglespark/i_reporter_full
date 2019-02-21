@@ -17,20 +17,16 @@ function get_redflags() {
             let tr = createNode('tr'),
                 td1 = createNode('td'),
                 td2 = createNode('td'),
-                td3 = createNode('td'),
-                td4 = createNode('td');
+                td3 = createNode('td');
             
-            let location = `${redflag.location}`;
 
-            td1.innerHTML = `${redflag.id}`;
-            td2.innerHTML = `<a href="redflag_detail.html" onclick="get_id(${redflag.id})">${redflag.created_on}</a>`;
-            td3.innerHTML = `${redflag.status}`;
-            td4.innerHTML = `${redflag.comment}`;
+            td1.innerHTML = `<a href="redflag_detail_admin.html" onclick="get_id(${redflag.id})">${redflag.created_on}</a>`;
+            td2.innerHTML = `${redflag.status}`;
+            td3.innerHTML = `${redflag.comment}`;
           
             append(tr, td1);
             append(tr, td2);
             append(tr, td3);
-            append(tr, td4);
             append(rf_table, tr);
         }); }
         else
@@ -49,4 +45,9 @@ function get_redflags() {
 
 function get_id(id){
             localStorage.setItem("item_id", id)
+}
+
+function logout_user(){
+    localStorage.clear();
+    window.location.href = "./index.html";
 }

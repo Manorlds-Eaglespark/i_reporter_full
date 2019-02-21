@@ -48,3 +48,8 @@ function get_user_redflags() {
 function get_id(id){
             localStorage.setItem("item_id", id)
 }
+
+function logout_user(){
+    localStorage.clear();
+    window.location.href = "./index.html";
+}

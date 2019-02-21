@@ -1,7 +1,10 @@
 
 
 
-
+function logout_user(){
+    localStorage.clear();
+    window.location.href = "./index.html";
+}
 
 
 function post_redflag() {

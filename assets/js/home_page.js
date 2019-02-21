@@ -22,6 +22,12 @@ function get_user_name(){
             localStorage.setItem('last_name', data.data.lastname);
             localStorage.setItem('user_id', data.data.id);
             document.getElementById("user_identifier").innerHTML = `${ data.data.firstname}` + ` ${ data.data.lastname}`;
+
+
+            if(data.data.isadmin == "True")
+            {
+                window.location.href = "./admin.html";
+            }
         }
     else
         {

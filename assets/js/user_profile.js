@@ -86,3 +86,7 @@ function get_user_stats() {
 
 
 
+function logout_user(){
+    localStorage.clear();
+    window.location.href = "./index.html";
+}

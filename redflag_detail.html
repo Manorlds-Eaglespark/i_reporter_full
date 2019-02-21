@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="text/html" charset="utf-8" />
+    <link rel="stylesheet" type="text/css" media="screen" href="./assets/css/style.css" />
+    <script type="text/javascript" src="./assets/js/delete_incident.js"></script>
+    
+    <title>iReporter</title>
+    <link rel="shortcut icon" href="./assets/images/favicon.png" type="image/x-icon">
+</head>
+
+<body>
+        <div class="pageHeading">
+                <span class="logo-l">i</span><span class="logo-r">Reporter</span> | <span id="user_identifier_profile" class="user_id"></span>
+            </div>
+
+    <div style="overflow:auto">
+            <div class="menu">
+                    <button id="go_back" class="back">Back</button>
+            </div>
+
+        <div class="main">
+            <p id="theme_about">A Stand Against Corruption.</p>
+            <div class="head-liner">&nbsp;</div>
+            <h4>Always Important To Add Support To Your Claims</h4>
+            <div id="feedback_bar" class="feedback_bar"></div>
+            <h5 id="theme"><img id="img_s" src="./assets/images/flag.png" alt="logo"> REDFLAG DETAIL</h5>
+            <div style="width:100%">
+                <div class="card">
+                    <div id="redflag_detail" class="container">
+                        <p><b>Date</b>: <span id="item_date"></span></p>
+                        <p><b>Status</b>: <span id="item_status"></span></p>
+                        <p><b>Comment</b>: <span id="item_comment"></span></p>
+                        <p><b>Location</b>: <span id="item_location"></span></p>
+                        <p><b>Images</b>: <a href="records_images.html">view</a></p>
+                        <p><b>Videos</b>: <a href="records_videos.html">view</a></p>
+                    </div>
+                </div>
+                <div id = "only_creater">
+                <button class="edit_red_flag_button" onclick="document.getElementById('id01').style.display='block'" style="width:auto;"> <B>Edit Location </B></button>
+                 
+                <button class="edit_red_flag_button" onclick="document.getElementById('id02').style.display='block'" style="width:auto;"><B>Edit Comment </B></button>
+                  
+                <button id="delete_red_flag" onclick="delete_this_incident_redflag()" class="edit_red_flag_button" style="width:auto;"> <B>Delete Flag Record </B></button>
+            
+            <br/><br/><br/>
+                        </div>
+                </div>
+
+        </div>
+
+        <div id="id01" class="modal">
+
+                <form class="modal-content animate" id='new-location-form'>
+                    <div class="imgcontainer">
+                        <span onclick="document.getElementById('id01').style.display='none'" class="close" title="Close Modal">&times;</span>
+                        <img src="./assets/images/flag2.png" alt="Avatar" class="avatar">
+                    </div>
+
+                    <div class="container">
+                        
+                            <div  id="feedback_bar3" class="feedback_bar"></div>
+
+                        <label for="uname"><b>New Location</b></label>
+                        <input id="location" type="text" placeholder="Enter Area Location"  required/>
+
+                        <button class="login_button" type="submit">UPDATE</button>
+                       
+                    </div>
+                </form>
+            </div>
+
+            <div id="id02" class="modal">
+
+                    <form class="modal-content animate" id='new-comment-form'>
+                        <div class="imgcontainer">
+                            <span onclick="document.getElementById('id01').style.display='none'" class="close" title="Close Modal">&times;</span>
+                            <img src="./assets/images/flag2.png" alt="Avatar" class="avatar">
+                        </div>
+    
+                        <div class="container">
+                        
+                                <div  id="feedback_bar3" class="feedback_bar"></div>
+    
+                            <label for="uname"><b>New Comment</b></label>
+                            <input id="comment" type="text" placeholder="Enter comment"  required/>
+    
+                            <button class="login_button" type="submit">SAVE</button>
+                           
+                        </div>
+                    </form>
+                </div>
+
+
+        <div class="right">
+            <h2 id="text_left">HOTLINE</h2>
+            <p id="text_left"><img id="contact_images" src="./assets/images/call.png" alt=""> 0414 5555 555</p>
+            <p id="text_left"><img id="contact_images" src="./assets/images/call.png" alt=""> 0414 4444 444</p>
+            <p id="text_left"><img id="contact_images" src="./assets/images/email.png" alt=""> ask@ireporter.com</p>
+
+        </div>
+        
+
+    </div>
+    <div class="footer">Andela Bootcamp 15 - Anorld Mukone, 2019</div>
+
+    <script type="text/javascript" src="./assets/js/functions.js"></script>
+    <script type="text/javascript" src="./assets/js/get_redflag.js"></script>
+    <script>get_redflag_detail();user_name_detail();</script>
+    <script>
+            var modal1 = document.getElementById('id01');
+            var modal2 = document.getElementById('id02');
+
+            window.onclick = function (event) {
+                if (event.target == modal1 || event.target == modal2) {
+                    modal1.style.display = "none";
+                    modal2.style.display = "none";
+                }
+            }
+        </script>
+        
+    <script type="text/javascript" src="./assets/js/edit_docs_interventions.js"></script>
+</body>
+
+</html>

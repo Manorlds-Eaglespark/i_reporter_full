@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="text/html" charset="utf-8" />
+        <link rel="stylesheet" type="text/css" media="screen" href="./assets/css/style.css" />
+        <title>iReporter</title>
+        <link rel="shortcut icon" href="./assets/images/favicon.png" type="image/x-icon">
+</head>
+
+<body>
+
+    <div class="pageHeading">
+        <span class="logo-l">i</span><span class="logo-r">Reporter</span>
+    </div>
+
+    <div style="overflow:auto">
+        <div class="menu">
+
+            &nbsp;
+
+        </div>
+
+        <div class="main">
+            <p id="theme_about">A Stand Against Corruption</p>
+            <div class="head-liner">&nbsp;</div>
+
+            <div class="father">
+                <img class="bannerImage" src="./assets/images/take_action1.jpg">
+            </div>
+
+            <div class="father">
+                <div class="sister">
+                    <p id="theme">Signup today</p>
+                    <button class="signin" onclick="document.getElementById('id03').style.display='block'" style="width:auto;"><img
+                            src="./assets/images/new-user.png" alt="logo"> <B>Signup</B></button>
+                </div>
+                <div class="brother">
+                    <p id="theme">Returning?</p>
+                    <button class="createAccount" onclick="document.getElementById('id01').style.display='block'" style="width:auto;"><img
+                            src="./assets/images/login.png" alt="logo"> <B>Login</B></button>
+                </div>
+                <p>&nbsp; </p>
+                <p>&nbsp; </p>
+            </div>
+
+            <br/>
+
+
+            <div id="id01" class="modal">
+
+                <form class="modal-content animate" id='login-form'>
+                    <div class="imgcontainer">
+                        <span onclick="document.getElementById('id01').style.display='none'" class="close" title="Close Modal">&times;</span>
+                        <img src="./assets/images/login2.png" alt="Avatar" class="avatar">
+                    </div>
+
+                    <div class="container">
+                        
+                            <div  id="feedback_bar3" class="feedback_bar"></div>
+
+                        <label for="uname"><b>Email</b></label>
+                        <input type="text" placeholder="Enter Email" id="email" required/>
+
+                        <label for="psw"><b>Password</b></label>
+                        <input type="password" placeholder="Enter Password" id="pass_word" required/>
+
+                        <button class="login_button" type="submit">LOGIN</button>
+                       
+                    </div>
+                </form>
+            </div>
+
+            <div id="id03" class="modal">
+                <form class="modal-content animate" id='register-form'>
+                    <div class="imgcontainer">
+                        <span onclick="document.getElementById('id03').style.display='none'" class="close" title="Close Modal">&times;</span>
+                        <img src="./assets/images/new-user2.png" alt="Avatar" class="avatar">
+                    </div>
+
+                    <div class="container">
+
+                            <div id="feedback_bar4" class="feedback_bar"></div>
+
+                        <label for="uname"><b>Firstname</b></label>
+                        <input type="text" placeholder="Enter Username" id="firstname" required>
+
+                        <label for="uname"><b>Lastname</b></label>
+                        <input type="text" placeholder="Enter Username" id="lastname" required>
+
+                        <label for="uname"><b>Othernames</b></label>
+                        <input type="text" placeholder="Enter Username" id="othernames">
+
+                        <label for="uname"><b>Email</b></label>
+                        <input type="text" placeholder="Enter Username" id="emai_l" required>
+
+                        <label for="psw"><b>Password</b></label>
+                        <input type="password" placeholder="Enter Password" id="password" required>
+                        
+                        <label for="uname"><b>Phone Number</b></label>
+                        <input type="text" placeholder="Enter Username" id="phonenumber" required>
+
+                        <label for="uname"><b>UserName</b></label>
+                        <input type="text" placeholder="Enter Username" id="username">
+                        
+                        <button class="register_button" type="submit">REGISTER</button>
+
+                    </div>
+
+                </form>
+            </div>
+
+            <script>
+                var modal1 = document.getElementById('id01');
+                var modal3 = document.getElementById('id03');
+
+                window.onclick = function (event) {
+                    if (event.target == modal1 || event.target == modal3) {
+                        modal1.style.display = "none";
+                        modal3.style.display = "none";
+                    }
+                }
+            </script>
+
+        </div>
+
+        <div class="right">
+            <h2 id="text_left">ABOUT</h2>
+            <p id="text_left">We aim at creating a corruption free world. Do not keep quiet, report corrupt officials
+                immediately for proper Accountability, Unity and Development.</p>
+            &nbsp;
+            <h2 id="text_left">HOTLINE</h2>
+            <p id="text_left"><img id="contact_images" src="./assets/images/call.png" alt=""> 0414 5555 555</p>
+            <p id="text_left"><img id="contact_images" src="./assets/images/call.png" alt=""> 0414 4444 444</p>
+            <p id="text_left"><img id="contact_images" src="./assets/images/email.png" alt=""> ask@ireporter.com</p>
+
+        </div>
+
+    </div>
+
+    <div class="footer">Andela Bootcamp 15 - Anorld Mukone, 2019</div>
+    <script type="text/javascript" src="./assets/js/auth.js"></script>
+</body>
+
+</html>

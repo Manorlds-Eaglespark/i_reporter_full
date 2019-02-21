@@ -23,18 +23,15 @@ function get_interventions() {
             let tr = createNode('tr'),
                 td1 = createNode('td'),
                 td2 = createNode('td'),
-                td3 = createNode('td'),
-                td4 = createNode('td');
+                td3 = createNode('td');
               
-                td1.innerHTML = `${intervention.id}`;
-                td2.innerHTML = `<a href="intervention_detail.html" onclick="get_id(${intervention.id})">${intervention.created_on}</a>`;
-                td3.innerHTML = `${intervention.status}`;
-                td4.innerHTML = `${intervention.comment}`;
+                td1.innerHTML = `<a href="intervention_detail_admin.html" onclick="get_id(${intervention.id})">${intervention.created_on}</a>`;
+                td2.innerHTML = `${intervention.status}`;
+                td3.innerHTML = `${intervention.comment}`;
                
               append(tr, td1);
               append(tr, td2);
               append(tr, td3);
-              append(tr, td4);
             
               append(i_table, tr);
             });
