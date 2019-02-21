@@ -5,12 +5,12 @@
         <meta http-equiv="X-UA-Compatible" content="text/html" charset="utf-8" />
         <link rel="stylesheet" type="text/css" media="screen" href="../assets/css/style.css" />
         <script type="text/javascript" src="../assets/js/functions.js"></script>
-        <script type="text/javascript" src="../assets/js/get_redflags.js"></script>
+        <script type="text/javascript" src="../assets/js/get_redflags_user.js"></script>
         <title>iReporter</title>
         <link rel="shortcut icon" href="../assets/images/favicon.png" type="image/x-icon">
 </head>
 
-<body onload="get_redflags()">
+<body onload="get_user_redflags()">
         <div class="pageHeading">
                 <span class="logo-l">i</span><span class="logo-r">Reporter</span> | <span id="user_identifier_profile" class="user_id"></span>
             </div>
@@ -20,32 +20,29 @@
         <div class="menu">
             <a href="home.html">HOME</a>
             <a href="user_profile.html">PROFILE</a>
-            <a href="records.html">RECORDS</a>
             <a href="redflags.html">@ REDFLAGS</a>
             <a href="interventions.html">INTERVENTIONS</a>
+            <button id="logout" class="LogOut">Logout</button>
         </div>
 
         <div class="main">
             <p id="theme_about">A Stand Against Corruption.</p>
+            <div class="head-liner">&nbsp;</div>
             <h4>Always Important To Add Support To Your Claims</h4>
 
             <div id="feedback_bar" class="feedback_bar"></div>
 
-            <h5 id="theme"><img id="img_s" src="../assets/images/flag.png" alt="logo">REDFLAGS</h5>
+            <h5 id="theme"><img id="img_s" src="../assets/images/flag2.png" alt="logo">RED-FLAGS</h5>
             <div style="width:100%">
                 <table style="max-width:100%" id = "redflag_table"> 
                     <tr>
-                        <th >Id</th>
                         <th >Date</th>
                         <th id="disappear_small">Status</th>
                         <th>Comment</th>
-                        <th id="disappear_small">Location (long,lat)</th>
-                        <th id="disappear_small">Image</th>
-                        <th id="disappear_small">Video</th>
                     </tr>
                 </table>
 
-                <br />
+                <br/><br/><br/><br/>
 
             </div>
 
@@ -60,7 +57,7 @@
         </div>
 
     </div>
-    <div class="footer">Andela Level Up 35 December - Anorld Mukone, 2018</div>
+    <div class="footer">Andela Bootcamp 15 - Anorld Mukone, 2019</div>
     <script>user_name_detail();</script>
 </body>
 

@@ -5,8 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="text/html" charset="utf-8" />
     <link rel="stylesheet" type="text/css" media="screen" href="../assets/css/style.css" />
-    <script type="text/javascript" src="../assets/js/functions.js"></script>
-    <script type="text/javascript" src="../assets/js/get_intervention.js"></script>
     <title>iReporter</title>
     <link rel="shortcut icon" href="../assets/images/favicon.png" type="image/x-icon">
 </head>
@@ -19,11 +17,12 @@
 
     <div style="overflow:auto">
         <div class="menu">
-            <a href="#"></a>
+                <button id="go_back" class="back">Back</button>
         </div>
 
         <div class="main">
             <p id="theme_about">A Stand Against Corruption.</p>
+            <div class="head-liner">&nbsp;</div>
             <h4>Always Important To Add Support To Your Claims</h4>
             
             <div id="feedback_bar" class="feedback_bar"></div>
@@ -43,14 +42,11 @@
                     </div>
                 </div>
                 <div id = "only_creater">
-                        <button class="new_intervation_button" onclick="document.getElementById('id02').style.display='block'" style="width:auto;"><img
-                            id="img_s" src="../assets/images/sos2.png" alt="logo"> <B>Edit Location </B></button>
+                        <button class="edit_intervation_button" onclick="document.getElementById('id02').style.display='block'" style="width:auto;"><B>Edit Location </B></button>
                          
-                        <button class="new_intervation_button" onclick="document.getElementById('id02').style.display='block'" style="width:auto;"><img
-                                id="img_s" src="../assets/images/sos2.png" alt="logo"> <B>Edit Comment </B></button>
+                        <button class="edit_intervation_button" onclick="document.getElementById('id02').style.display='block'" style="width:auto;"> <B>Edit Comment </B></button>
                           
-                        <button class="new_intervation_button" onclick="document.getElementById('id02').style.display='block'" style="width:auto;"><img
-                                    id="img_s" src="../assets/images/sos2.png" alt="logo"> <B>Delete Flag Record </B></button>
+                        <button id="delete-intervention" class="edit_intervation_button" onclick="document.getElementById('id02').style.display='block'" style="width:auto;"><B>Delete Flag Record </B></button>
                     </div>
 
               <br />
@@ -67,10 +63,8 @@
             <p id="text_left"><img id="contact_images" src="../assets/images/email.png" alt=""> ask@ireporter.com</p>
 
         </div>
-
-        <script>get_intervention_detail()</script>
     </div>
-    <div class="footer">Andela Level Up 35 December - Anorld Mukone, 2018</div>
+    <div class="footer">Andela Bootcamp 15 - Anorld Mukone, 2019</div>
 
     
     <div id="id01" class="modal">
@@ -106,7 +100,66 @@
     
             </form>
         </div>
-<script>user_name_detail();</script>
+
+        <div id="id01" class="modal">
+
+                <form class="modal-content animate" id='new-location-form'>
+                    <div class="imgcontainer">
+                        <span onclick="document.getElementById('id01').style.display='none'" class="close" title="Close Modal">&times;</span>
+                        <img src="../assets/images/sos2.png" alt="Avatar" class="avatar">
+                    </div>
+
+                    <div class="container">
+                        
+                            <div  id="feedback_bar3" class="feedback_bar"></div>
+
+                        <label for="uname"><b>New Location</b></label>
+                        <input type="text" placeholder="Enter Cordinates" id="location" required/>
+
+                        <button class="login_button" type="submit">SAVE</button>
+                       
+                    </div>
+                </form>
+            </div>
+
+            <div id="id02" class="modal">
+
+                    <form class="modal-content animate" id='new-comment-form'>
+                        <div class="imgcontainer">
+                            <span onclick="document.getElementById('id01').style.display='none'" class="close" title="Close Modal">&times;</span>
+                            <img src="../assets/images/sos2.png" alt="Avatar" class="avatar">
+                        </div>
+    
+                        <div class="container">
+                        
+                                <div  id="feedback_bar3" class="feedback_bar"></div>
+    
+                            <label for="uname"><b>New Comment</b></label>
+                            <input type="text" placeholder="Enter comment" id="comment" required/>
+    
+                            <button class="login_button" type="submit">SAVE</button>
+                           
+                        </div>
+                    </form>
+                </div>
+
+        <script>
+                var modal1 = document.getElementById('id01');
+                var modal2 = document.getElementById('id02');
+
+                window.onclick = function (event) {
+                    if (event.target == modal1 || event.target == modal2) {
+                        modal1.style.display = "none";
+                        modal2.style.display = "none";
+                    }
+                }
+            </script>
+
+
+<script type="text/javascript" src="../assets/js/functions.js"></script>
+<script type="text/javascript" src="../assets/js/get_intervention.js"></script>
+<script>user_name_detail();get_intervention_detail();</script>
+
 </body>
 
 </html>

@@ -18,10 +18,7 @@ function get_redflags() {
                 td1 = createNode('td'),
                 td2 = createNode('td'),
                 td3 = createNode('td'),
-                td4 = createNode('td'),
-                td5 = createNode('td'),
-                td6 = createNode('td'),
-                td7 = createNode('td');
+                td4 = createNode('td');
             
             let location = `${redflag.location}`;
 
@@ -29,17 +26,11 @@ function get_redflags() {
             td2.innerHTML = `<a href="redflag_detail.html" onclick="get_id(${redflag.id})">${redflag.created_on}</a>`;
             td3.innerHTML = `${redflag.status}`;
             td4.innerHTML = `${redflag.comment}`;
-            td5.innerHTML = location.substring(1, location.length-1);
-            td6.innerHTML = `${redflag.images}`;
-            td7.innerHTML = `${redflag.videos}`;
-
+          
             append(tr, td1);
             append(tr, td2);
             append(tr, td3);
             append(tr, td4);
-            append(tr, td5);
-            append(tr, td6);
-            append(tr, td7);
             append(rf_table, tr);
         }); }
         else

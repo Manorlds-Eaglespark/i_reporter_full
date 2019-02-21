@@ -2,6 +2,7 @@ import os
 import jwt
 from functools import wraps
 from flask import request
+from app.models.user import User
 from app.databases.database import Database
 from app.utilities.helper_functions import Helper_Functions
 
@@ -33,11 +34,12 @@ def login_required(f):
     def wrap(*args, **kwargs):
         access_token = get_token()
         if access_token:
-            access_token = str(access_token).split(" ")[1]
             user_id = decode_token(access_token)
             if isinstance(user_id, str):
                 return Helper_Functions.the_return_method(401, user_id)
-            current_user = user_id
+            database = Database()
+            the_user = database.get_user_by_id(user_id)
+            current_user = User.convert_to_dictionary(the_user)
             return f(current_user, *args, **kwargs)
         else:
             return Helper_Functions.the_return_method(
