@@ -1,0 +1,6 @@
+venv
+.vscode
+.coveragerc
+/app/__pycache__
+api/instance/__pycache__/
+app/__pycache__
